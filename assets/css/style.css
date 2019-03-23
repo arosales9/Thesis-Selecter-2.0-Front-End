@@ -20,6 +20,7 @@
   font-size: 8px;
   font-style: italic;
   border-radius: 0 !important;
+
 }
 
 .footer-stylesheet
@@ -43,4 +44,9 @@
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+}
+article > div:hover
+{
+  border: 1px solid green;
+
 }

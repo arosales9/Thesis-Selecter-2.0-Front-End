@@ -73,11 +73,10 @@
      	<div id="path">
 	        	<ol class="breadcrumb">
 	            	<li>Usted está en:</li>
-	            <li><a href="">Inicio</a></li>
+	            <li><a href="">Ver más</a></li>
 			</ol>
         </div>
         <div id="sesion">
-
 
         </div>
      </div> <!--cierra path-->
@@ -88,115 +87,147 @@
 	    </div><!--/ Cierra .container /-->
     </section>
     <nav class="nav-sistema">
-    		<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header2" aria-controls="navbar-header2" aria-expanded="false">☰</button>
-		<div class="collapse navbar-toggleable-sm" id="navbar-header2">
-	        <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-	            <li class="nav-item">
-	                <a class="a1 nav-link" aria-expanded="false" href="home.php">
-	                    Inicio
+        <button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header2" aria-controls="navbar-header2" aria-expanded="false">☰</button>
+    <div class="collapse navbar-toggleable-sm" id="navbar-header2">
+          <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
+              <li class="nav-item">
+                  <a class="a1 nav-link" aria-expanded="false" href="home.php">
+                      Inicio
+                  </a>
+                  <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
+                  <table>
+                      <tr>
+                          <td>
+                              <![endif]-->
 
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
-	                <table>
-	                    <tr>
-	                        <td>
-	                            <![endif]-->
+                              <!--[if lte IE 6]>
+                          </td>
+                      </tr>
+                  </table>
+                  </a><![endif]-->
+              </li>
 
-
-
-	                            <!--[if lte IE 6]>
-	                        </td>
-	                    </tr>
-	                </table>
-	                </a><![endif]-->
-	            </li>
-
-
-	            <li class="nav-item">
-	                <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-	                    <div class="oIcono opcion3"></div>
-	                   <span class="glyphicon glyphicon-cog"></span>
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
+              <li class="nav-item">
+                  <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                      <div class="oIcono opcion3"></div>
+                     <span class="glyphicon glyphicon-cog"></span>
+                  </a>
+                  <!--[if gte IE 7]><!--><!--<![endif]-->
                   <ul id="subnavlist" class="dropdown-menu">
                      <li><a href="#"><small><?php echo $atributos["uNombre"][0]; ?></small></a></li>
                      <li><a href="assets/federacion/logout.php"><small>Cerrar Sesión</small></a></li>
                   </ul>
-	            </li>
+              </li>
               <li class="nav-item">
-	                <a class="a1 nav-link" href="#">
-	                    Sobré Nosotros
-
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
-	            </li>
-	        </ul>
-	    </div>
-	</nav>
+                  <a class="a1 nav-link" href="#">
+                      Sobré Nosotros
+                  </a>
+                  <!--[if gte IE 7]><!--><!--<![endif]-->
+              </li>
+          </ul>
+      </div>
+    </nav>
 
 
     <div class="container c-principal">
-      <div class="col-md-12" style="margin-bottom: 40px;">
-        <h1>Selección de tema de tesis</h1>
-          <div class="search-result-item">
-              <p>Descubre tu tesis ideal a través de esta página web, la cual te permite seleccionar dinámicamente el tema de tesis de grado de acuerdo a tus intereses académicos (tema central, grupo de investigación, línea de investigación, perfil del estudiante, asesor, etc).</p>
-          </div>
+      <div class="col-md-12">
       </div>
 		<div class="row p-contenido">
-			<div class="col-xl-3 col-lg-4 col-md-4 col-xs-12 sidebar">
-        <div class="pricing-head margin-bottom-20">
-          <h3>Filtros
-          <span>
-              Filtro de búsqueda de tesis
-          </span>
-          </h3>
-        </div>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
+			<div class="col-xl-1 col-lg-4 col-md-4 col-xs-12 sidebar">
 
-                </div>
-              </div>
-            </div>
-          </div>
 			</div>
 			<!-- <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"> <--Con  contenido izquierdo o derecho uno de los dos
 			<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 main"> <--Pagina completa -->
-			<div id="thesis" class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
+			<div id="thesis" class="col-xl-10 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
+        <table class="table table-striped table-hover">
+    <tbody>
+        <tr>
+            <td colspan="2" style="text-align: center; ">
+                <h2 id="ThesisName"></h2>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:auto; width:100%; padding-top: 10px;" colspan="2" style="text-align: center;">
+                <div class="row margin-bottom-10 margin-top-10">
+                    <div style="justify-content: center; align-items: center; display: flex;" class="col-lg-4 col-lg-offset-4 gallery-item">
+                        <a id="fotoZoom" data-rel="fancybox-button" title="" href="" class="fancybox-button">
+                            <img id="Image" style="height: auto; width: auto;" alt="" src="" class="img-responsive">
+                            <div class="zoomix"><i class="fa fa-search"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="34%"><h4><a id="Topic" href="javascript:;">Temas Centrales:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="ResearchGroup" href="javascript:;">Grupo de Investigación:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="ResearchLine" href="javascript:;">Línea de Investigación:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="StudentProfile" href="javascript:;">Perfil de Estudiante:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Tecnologies" href="javascript:;">Tecnologías a utilizar:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Plazas" href="javascript:;">Número de alumnos requeridos:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Accepted" href="javascript:;">Número de alumnos aceptados:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="ResearcherName" href="javascript:;">Nombre del asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="ResearcherEmail" href="javascript:;">E-mail del asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="University" href="javascript:;">Universidad de adscripción del asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Work" href="javascript:;">Dependencia de adscripción del asesor:</a></h4></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td><h4><a id="Building" href="javascript:;">Edificio donde labora el asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Room" href="javascript:;">Cubículo donde se encuentra el asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Cv" href="javascript:;">Curriculum Vitae del asesor:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="Support" href="javascript:;">Tipo de apoyo al alumno:</a></h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><h4><a id="FunddingAgency" href="javascript:;">Institución que apoya:</a></h4></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+			</div>
+      <div class="col-xl-1 col-lg-4 col-md-4 col-xs-12 sidebar">
 
 			</div>
 		</div>
@@ -230,7 +261,8 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/home.js" type="text/javascript">
+    <script src="assets/js/inside.js" type="text/javascript">
+
 </script>
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>

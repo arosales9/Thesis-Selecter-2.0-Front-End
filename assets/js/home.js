@@ -1,6 +1,6 @@
 function getAllThesis()
 {
-  $.getJSON(`http://201.164.196.37/Thesis-Selecter-2.0-Back-End/get-Tesis.php?all=yes`,
+  $.getJSON(`https://cenedic4.ucol.mx/Thesis-Selecter/Thesis-Selecter-2.0-Back-End/index.php/Thesis/all_thesis`,
   (result) => {})
    .success((result) =>
    {
@@ -17,7 +17,8 @@ function getThesisHtml(allThesis) {
 	const thesisHtml = allThesis.map((thesis) => {
 		const { ThesisID, ThesisName, StatusName, Image } = thesis;
 		return `<article class="col-md-3 col-sm-6 col-xs-12" style="">
-        <div class="pricing hover-effect" style="border: 1px solid green;    position: relative; margin-bottom: 15px;">
+        <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+
             <div class="pricing-head">
                      <h3 class="bg-success head">Tesis
                 <span class="enunciado">
@@ -34,7 +35,9 @@ function getThesisHtml(allThesis) {
                 <p class="thesis-name parrafo">
                     ${ThesisName}
                 </p>
-                  <a href="#" class="btn btn-success" style="outline: 0; text-decoration: none;">
+
+                  <a onclick="guardarID(${ThesisID});" class="btn btn-success" style="outline: 0; text-decoration: none;">
+
                       Ver más <i class="m-icon-swapright m-icon-white"></i>
                   </a>
             </div>
@@ -43,6 +46,14 @@ function getThesisHtml(allThesis) {
 	});
 	return thesisHtml.join('');
 }
+
+
+function guardarID(thesis_id)
+{
+  sessionStorage.setItem('thesis_id', thesis_id);
+  window.location.assign("inside.php");
+}
+
 
 $(document).ready(function () {
   getAllThesis();

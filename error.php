@@ -73,12 +73,15 @@
      	<div id="path">
 	        	<ol class="breadcrumb">
 	            	<li>Usted está en:</li>
-	            <li><a href="">Inicio</a></li>
+	            <li><a href="/">Inicio</a></li>
 			</ol>
         </div>
         <div id="sesion">
-
-
+	        	<ol class="breadcrumb">
+	            	<li>Bienvenido(a):</li>
+	            <li class="user-name"><?php echo $atributos["uNombre"][0]; ?></li>
+	            <li><a href="assets/federacion/logout.php">Salir</a></li>
+			</ol>
         </div>
      </div> <!--cierra path-->
     </section>
@@ -92,41 +95,42 @@
 		<div class="collapse navbar-toggleable-sm" id="navbar-header2">
 	        <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
 	            <li class="nav-item">
-	                <a class="a1 nav-link" aria-expanded="false" href="home.php">
-	                    Inicio
-
+	                <a class="a1 nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+	                    <div class="oIcono opcion1"></div>
+	                    Opción 1
 	                </a>
 	                <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
 	                <table>
 	                    <tr>
 	                        <td>
 	                            <![endif]-->
-
-
-
+	                            <ul id="subnavlist" class="dropdown-menu">
+	                                <li><a href="#">Sub-opción 1</a></li>
+				                    <li><a href="#">Sub-opción 2</a></li>
+				                    <li><a href="#">Sub-opción 3</a></li>
+				                    <li><a href="#">Sub-opción 4</a></li>
+	                            </ul>
 	                            <!--[if lte IE 6]>
 	                        </td>
 	                    </tr>
 	                </table>
 	                </a><![endif]-->
 	            </li>
-
-
 	            <li class="nav-item">
-	                <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-	                    <div class="oIcono opcion3"></div>
-	                   <span class="glyphicon glyphicon-cog"></span>
+	                <a class="a1 nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+	                    <div class="oIcono opcion1"></div>
+	                    Opción 2
 	                </a>
+	                <ul id="subnavlist" class="dropdown-menu">
+	                    <li><a href="#">Sub-opción 1</a></li>
+		                <li><a href="#">Sub-opción 2</a></li>
+	                </ul>
 	                <!--[if gte IE 7]><!--><!--<![endif]-->
-                  <ul id="subnavlist" class="dropdown-menu">
-                     <li><a href="#"><small><?php echo $atributos["uNombre"][0]; ?></small></a></li>
-                     <li><a href="assets/federacion/logout.php"><small>Cerrar Sesión</small></a></li>
-                  </ul>
 	            </li>
-              <li class="nav-item">
-	                <a class="a1 nav-link" href="#">
-	                    Sobré Nosotros
-
+	            <li class="nav-item">
+	                <a class="a3 nav-link" href="plantillas.php">
+	                    <div class="oIcono opcion3"></div>
+	                    Opción 3
 	                </a>
 	                <!--[if gte IE 7]><!--><!--<![endif]-->
 	            </li>
@@ -137,66 +141,22 @@
 
     <div class="container c-principal">
       <div class="col-md-12" style="margin-bottom: 40px;">
-        <h1>Selección de tema de tesis</h1>
-          <div class="search-result-item">
-              <p>Descubre tu tesis ideal a través de esta página web, la cual te permite seleccionar dinámicamente el tema de tesis de grado de acuerdo a tus intereses académicos (tema central, grupo de investigación, línea de investigación, perfil del estudiante, asesor, etc).</p>
-          </div>
+
       </div>
 		<div class="row p-contenido">
-			<div class="col-xl-3 col-lg-4 col-md-4 col-xs-12 sidebar">
-        <div class="pricing-head margin-bottom-20">
-          <h3>Filtros
-          <span>
-              Filtro de búsqueda de tesis
-          </span>
-          </h3>
-        </div>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
+			<div class="col-xl-2 col-lg-4 col-md-4 col-xs-12 sidebar">
 
-                </div>
-              </div>
-            </div>
-          </div>
 			</div>
 			<!-- <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"> <--Con  contenido izquierdo o derecho uno de los dos
 			<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 main"> <--Pagina completa -->
 			<div id="thesis" class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
+        <h1>Error</h1>
+          <div class="search-result-item">
+            <h2>Es posible que no tengas permisos</h2>
+          </div>
+
+			</div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-xs-12 sidebar">
 
 			</div>
 		</div>
@@ -230,7 +190,6 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/home.js" type="text/javascript">
 </script>
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>
