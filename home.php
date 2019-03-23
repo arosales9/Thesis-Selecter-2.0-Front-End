@@ -78,6 +78,7 @@
         </div>
         <div id="sesion">
 
+
         </div>
      </div> <!--cierra path-->
     </section>
@@ -93,6 +94,7 @@
 	            <li class="nav-item">
 	                <a class="a1 nav-link" aria-expanded="false" href="home.php">
 	                    Inicio
+
 	                </a>
 	                <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
 	                <table>
@@ -100,12 +102,15 @@
 	                        <td>
 	                            <![endif]-->
 
+
+
 	                            <!--[if lte IE 6]>
 	                        </td>
 	                    </tr>
 	                </table>
 	                </a><![endif]-->
 	            </li>
+
 
 	            <li class="nav-item">
 	                <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
@@ -121,6 +126,7 @@
               <li class="nav-item">
 	                <a class="a1 nav-link" href="#">
 	                    Sobré Nosotros
+
 	                </a>
 	                <!--[if gte IE 7]><!--><!--<![endif]-->
 	            </li>

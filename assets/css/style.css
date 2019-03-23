@@ -20,6 +20,7 @@
   font-size: 8px;
   font-style: italic;
   border-radius: 0 !important;
+
 }
 
 .footer-stylesheet
@@ -47,4 +48,5 @@
 article > div:hover
 {
   border: 1px solid green;
+
 }

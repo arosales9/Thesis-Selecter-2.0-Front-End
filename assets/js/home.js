@@ -18,6 +18,7 @@ function getThesisHtml(allThesis) {
 		const { ThesisID, ThesisName, StatusName, Image } = thesis;
 		return `<article class="col-md-3 col-sm-6 col-xs-12" style="">
         <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+
             <div class="pricing-head">
                      <h3 class="bg-success head">Tesis
                 <span class="enunciado">
@@ -34,7 +35,9 @@ function getThesisHtml(allThesis) {
                 <p class="thesis-name parrafo">
                     ${ThesisName}
                 </p>
+
                   <a onclick="guardarID(${ThesisID});" class="btn btn-success" style="outline: 0; text-decoration: none;">
+
                       Ver más <i class="m-icon-swapright m-icon-white"></i>
                   </a>
             </div>
@@ -44,11 +47,13 @@ function getThesisHtml(allThesis) {
 	return thesisHtml.join('');
 }
 
+
 function guardarID(thesis_id)
 {
   sessionStorage.setItem('thesis_id', thesis_id);
   window.location.assign("inside.php");
 }
+
 
 $(document).ready(function () {
   getAllThesis();
