@@ -254,6 +254,16 @@
     <script src="assets/js/inside.js" type="text/javascript"></script>
     <script src="assets/plugins/Fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
 
+    <script type="text/javascript">
+    $(document).ready(function ()
+    {
+      getInfoThesis();
+      // getAllThesis();
+
+    });
+
+    </script>
+
 
 
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->

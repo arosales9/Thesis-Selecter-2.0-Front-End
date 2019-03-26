@@ -24,7 +24,7 @@
 
 
           <li class="nav-item">
-              <a class="a1 nav-link" aria-expanded="false" href="home.php">
+              <a class="a1 nav-link" aria-expanded="false" href="my-tesis.php">
                   Mis Tesis
 
               </a>
@@ -43,7 +43,7 @@
               </a><![endif]-->
           </li>
           <li class="nav-item">
-              <a class="a1 nav-link" aria-expanded="false" href="home.php">
+              <a class="a1 nav-link" aria-expanded="false" href="solicitudes.php">
                   Solicitudes
 
               </a>

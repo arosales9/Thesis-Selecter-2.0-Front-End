@@ -183,9 +183,15 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/summary.js" type="text/javascript">
+    <script src="assets/js/summary.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function ()
+    {
+      getInfoThesis();
+      // getAllThesis();
 
-</script>
+    });
+    </script>
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

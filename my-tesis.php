@@ -1,6 +1,13 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
+   if ($atributos['uTipo'][0] != 'Trabajador') {
+     header('Location: home.php?msg=3');
+     // code...
+   }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +35,10 @@
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+
 
 
   </head>
@@ -73,15 +84,11 @@
      	<div id="path">
 	        	<ol class="breadcrumb">
 	            	<li>Usted está en:</li>
-	            <li><a href="/">Inicio</a></li>
+	            <li><a href="">Mis tesis</a></li>
 			</ol>
         </div>
         <div id="sesion">
-	        	<ol class="breadcrumb">
-	            	<li>Bienvenido(a):</li>
-	            <li class="user-name"><?php echo $atributos["uNombre"][0]; ?></li>
-	            <li><a href="assets/federacion/logout.php">Salir</a></li>
-			</ol>
+
         </div>
      </div> <!--cierra path-->
     </section>
@@ -90,73 +97,33 @@
 	        <h1 class="title-ucol">Thesis-Selecter</h1>
 	    </div><!--/ Cierra .container /-->
     </section>
-    <nav class="nav-sistema">
-    		<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header2" aria-controls="navbar-header2" aria-expanded="false">☰</button>
-		<div class="collapse navbar-toggleable-sm" id="navbar-header2">
-	        <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-	            <li class="nav-item">
-	                <a class="a1 nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-	                    <div class="oIcono opcion1"></div>
-	                    Opción 1
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
-	                <table>
-	                    <tr>
-	                        <td>
-	                            <![endif]-->
-	                            <ul id="subnavlist" class="dropdown-menu">
-	                                <li><a href="#">Sub-opción 1</a></li>
-				                    <li><a href="#">Sub-opción 2</a></li>
-				                    <li><a href="#">Sub-opción 3</a></li>
-				                    <li><a href="#">Sub-opción 4</a></li>
-	                            </ul>
-	                            <!--[if lte IE 6]>
-	                        </td>
-	                    </tr>
-	                </table>
-	                </a><![endif]-->
-	            </li>
-	            <li class="nav-item">
-	                <a class="a1 nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-	                    <div class="oIcono opcion1"></div>
-	                    Opción 2
-	                </a>
-	                <ul id="subnavlist" class="dropdown-menu">
-	                    <li><a href="#">Sub-opción 1</a></li>
-		                <li><a href="#">Sub-opción 2</a></li>
-	                </ul>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
-	            </li>
-	            <li class="nav-item">
-	                <a class="a3 nav-link" href="plantillas.php">
-	                    <div class="oIcono opcion3"></div>
-	                    Opción 3
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
-	            </li>
-	        </ul>
-	    </div>
-	</nav>
+    <?php if ($atributos['uTipo'][0] == 'Estudiante')
+    {
+      include('assets/views/student/navbar.php');
+    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
+      include('assets/views/researcher/navbar.php');
+    }
+    ?>
 
 
     <div class="container c-principal">
-      <div class="col-md-12" style="margin-bottom: 40px;">
-
+      <div class="col-xl-11 col-lg-10 col-md-8 col-sm-6 col-xs-12">
+        <h1>Mis Tesis</h1>
       </div>
-		<div class="row p-contenido">
-			<div class="col-xl-2 col-lg-4 col-md-4 col-xs-12 sidebar">
+      <div class=" col-xl-1 col-lg-2 col-md-4 col-sm-6 col-xs-12" style="padding-bottom:30px;">
+        <button type="button" class="btn btn-success" name="button">Agregar Tesis</button>
+      </div>
+      <!-- <br><br> -->
+		<div class="row p-contenido" style="">
+			<div class="col-xl-1 col-lg-4 col-md-4 col-xs-12 sidebar">
 
 			</div>
 			<!-- <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"> <--Con  contenido izquierdo o derecho uno de los dos
 			<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 main"> <--Pagina completa -->
-			<div id="thesis" class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
-        <h1>Error</h1>
-          <div class="search-result-item">
-            <h2>Es posible que no tengas permisos</h2>
-          </div>
+      <div id="thesis" class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
 
-			</div>
-      <div class="col-xl-2 col-lg-4 col-md-4 col-xs-12 sidebar">
+      </div>
+      <div class="col-xl-1 col-lg-4 col-md-4 col-xs-12 sidebar">
 
 			</div>
 		</div>
@@ -190,7 +157,17 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-</script>
+    <script src="assets/js/my_tesis.js" type="text/javascript"></script>
+    <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           getAllThesis(<?php echo $atributos['uCuenta'][0]; ?>);
+           alerta();
+        });
+    </script>
+
+
+
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
