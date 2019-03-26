@@ -16,33 +16,27 @@ function alerta()
   case '2':
   Swal.fire({ type: 'error', title: 'Error 404', text: 'Tesis no encontrada'});
   break;
-  case '3':
-  Swal.fire({ type: 'error', title: 'Error de acceso', text: 'No tienes permiso para acceder'});
-  break;
-  case '4':
-  Swal.fire({ type: 'error', title: 'Error de conexión', text: 'Falló al cargar la información'});
-  break;
   }
 }
 
-
-function getAllThesis()
+function getAllThesis(uCuenta)
 {
-  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/all_thesis`,
+  $.getJSON(`http://201.164.196.37/Thesis-Selecter-2.0-Back-End/Thesis/researcher_tesis/${uCuenta}`,
   (result) => {})
    .success((result) =>
    {
      if (result.Error=='0')
      {
-       Swal.fire({ type: 'error', title: 'Error 404', text: 'Nunguna tesis registrada'});
+       Swal.fire({ type: 'warning', title: 'Pagina vacía', text: 'Nunguna tesis registrada'});
      } else {
        const thesisHtml = getThesisHtml(result);
        $('#thesis').html(thesisHtml);
      }
+
    })
    .fail(()=>
    {
-     Swal.fire('Datos no encontrados','Intentelo más adelante','question');
+       Swal.fire({ type: 'error', title: 'Error 404', text: 'Error de conexión'});
    });
 }
 

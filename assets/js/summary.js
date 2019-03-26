@@ -12,9 +12,12 @@ function getInfoThesis()
   (result) => {})
    .success((result) =>
    {
-     console.log(result);
-     getThesisHtml(result);
-
+     if (result.Error=='0')
+     {
+       window.location.assign('home.php?msg=2');
+     } else {
+       getThesisHtml(result);
+     }
    })
    .fail(()=>
    {
@@ -33,9 +36,3 @@ function getThesisHtml(result) {
     $('#Summary').text(Summary);
   });
 }
-
-$(document).ready(function ()
-{
-  getInfoThesis();
-  // getAllThesis();
-});
