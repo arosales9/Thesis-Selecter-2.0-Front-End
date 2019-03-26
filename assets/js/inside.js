@@ -1,59 +1,61 @@
-function validacion()
-{
-  valor = sessionStorage.getItem('thesis_id');
-  if (valor=="")
-  {
-    window.location.assign("error.php");    
-  }
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-// function getInfoThesis()
-// {
-//   $.getJSON(`https://cenedic4.ucol.mx/Thesis-Selecter/Thesis-Selecter-2.0-Back-End/index.php/Thesis/info_thesis?thesis_id=`,
-//   (result) => {})
-//    .success((result) =>
-//    {
-//      const thesisHtml = getThesisHtml(result);
-//      $('#thesis').html(thesisHtml);
-//    })
-//    .fail(()=>
-//    {
-//      alert('Error');
-//    });
-// }
+
+function getInfoThesis()
+{
+  const thesis_id = getParameterByName('thesis_id');
+  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/info_thesis/${thesis_id}`,
+  (result) => {})
+   .success((result) =>
+   {
+     console.log(result);
+     getThesisHtml(result);
+
+   })
+   .fail(()=>
+   {
+     window.location.assign('home.php?msg=2');
+   });
+}
 //
-// function getThesisHtml(allThesis) {
-// 	const thesisHtml = allThesis.map((thesis) => {
-// 		const { ThesisID, ThesisName, StatusName, Image } = thesis;
-// 		return `<article class="col-md-3 col-sm-6 col-xs-12" style="">
-//         <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
-//             <div class="pricing-head">
-//                      <h3 class="bg-success head">Tesis
-//                 <span class="enunciado">
-//                     ${StatusName}
-//                 </span>
-//                 </h3>
-//                 <span>
-//                 <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-//                     <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-//                 </figure>
-//                 </span>
-//             </div>
-//             <div class="pricing-footer footer-stylesheet">
-//                 <p class="thesis-name parrafo">
-//                     ${ThesisName}
-//                 </p>
-//                   <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
-//                       Ver más <i class="m-icon-swapright m-icon-white"></i>
-//                   </a>
-//             </div>
-//         </div>
-//         </article>`;
-// 	});
-// 	return thesisHtml.join('');
-// }
+function getThesisHtml(result) {
+  result.map((thesis) => {
+		const { ResearcherName, ThesisName, Image, TopicALL, ResearchGroupName, ResearchGroupKey, ResearchLineName, EducativeProgramName, RequirementsALL, PlazasID, Assigned, EmailAddress, UniversityName, SchoolName, BuildingName, RoomName, Link, SupportName, FundingAgencyAllName } = thesis;
+		$('#ResearcherName').text(ResearcherName);
+    $('#ThesisName').text(ThesisName);
+    $("#Image").attr("src", Image);
+    $("#Image").attr("alt", ThesisName);
+    $("#fotoZoom").attr("href", Image);
+    $("#fotoZoom").attr("title", ThesisName);
+    $('#Topic').text(TopicALL);
+    $('#ResearchGroup').text(ResearchGroupKey+"-"+ResearchGroupName);
+    $('#ResearchLine').text(ResearchLineName);
+    $('#StudentProfile').text(EducativeProgramName);
+    $('#Tecnologies').text(RequirementsALL);
+    $('#Plazas').text(PlazasID);
+    $('#Accepted').text(Assigned);
+    $('#ResearcherEmail').text(EmailAddress);
+    $('#University').text(UniversityName);
+    $('#Work').text(SchoolName);
+    $('#Building').text(BuildingName);
+    $('#Room').text(RoomName);
+    if (Link!='N/A')
+    {
+      $('#Cv').html(`<a href="${Link}" target="_blank">${Link}</a>`);
+    } else {
+     $('#Cv').text(Link);
+    }
+    $('#Support').text(SupportName);
+    $('#FunddingAgency').text(FundingAgencyAllName);
+  });
+}
 
 $(document).ready(function ()
 {
-  validacion();
+  getInfoThesis();
   // getAllThesis();
 });

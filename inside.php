@@ -1,6 +1,13 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
+
+
+   if (!isset($_GET['thesis_id']))
+   {
+     header('Location: home.php?msg=1');
+   }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +35,10 @@
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+
 
 
   </head>
@@ -86,47 +97,13 @@
 	        <h1 class="title-ucol">Thesis-Selecter</h1>
 	    </div><!--/ Cierra .container /-->
     </section>
-    <nav class="nav-sistema">
-        <button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header2" aria-controls="navbar-header2" aria-expanded="false">☰</button>
-    <div class="collapse navbar-toggleable-sm" id="navbar-header2">
-          <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-              <li class="nav-item">
-                  <a class="a1 nav-link" aria-expanded="false" href="home.php">
-                      Inicio
-                  </a>
-                  <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
-                  <table>
-                      <tr>
-                          <td>
-                              <![endif]-->
-
-                              <!--[if lte IE 6]>
-                          </td>
-                      </tr>
-                  </table>
-                  </a><![endif]-->
-              </li>
-
-              <li class="nav-item">
-                  <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-                      <div class="oIcono opcion3"></div>
-                     <span class="glyphicon glyphicon-cog"></span>
-                  </a>
-                  <!--[if gte IE 7]><!--><!--<![endif]-->
-                  <ul id="subnavlist" class="dropdown-menu">
-                     <li><a href="#"><small><?php echo $atributos["uNombre"][0]; ?></small></a></li>
-                     <li><a href="assets/federacion/logout.php"><small>Cerrar Sesión</small></a></li>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a class="a1 nav-link" href="#">
-                      Sobré Nosotros
-                  </a>
-                  <!--[if gte IE 7]><!--><!--<![endif]-->
-              </li>
-          </ul>
-      </div>
-    </nav>
+    <?php if ($atributos['uTipo'][0] == 'Estudiante')
+    {
+      include('assets/views/student/navbar.php');
+    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
+      include('assets/views/researcher/navbar.php');
+    }
+    ?>
 
 
     <div class="container c-principal">
@@ -151,7 +128,7 @@
                 <div class="row margin-bottom-10 margin-top-10">
                     <div style="justify-content: center; align-items: center; display: flex;" class="col-lg-4 col-lg-offset-4 gallery-item">
                         <a id="fotoZoom" data-rel="fancybox-button" title="" href="" class="fancybox-button">
-                            <img id="Image" style="height: auto; width: auto;" alt="" src="" class="img-responsive">
+                            <img id="Image" style="height: auto; width: auto;" alt="" class="img-responsive">
                             <div class="zoomix"><i class="fa fa-search"></i></div>
                         </a>
                     </div>
@@ -159,72 +136,85 @@
             </td>
         </tr>
         <tr>
-            <td width="34%"><h4><a id="Topic" href="javascript:;">Temas Centrales:</a></h4></td>
-            <td></td>
+            <td width="34%"><h4><a  href="javascript:;">Temas Centrales:</a></h4></td>
+            <td id="Topic"></td>
         </tr>
         <tr>
-            <td><h4><a id="ResearchGroup" href="javascript:;">Grupo de Investigación:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Grupo de Investigación:</a></h4></td>
+            <td id="ResearchGroup"></td>
         </tr>
         <tr>
-            <td><h4><a id="ResearchLine" href="javascript:;">Línea de Investigación:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Línea de Investigación:</a></h4></td>
+            <td id="ResearchLine"></td>
         </tr>
         <tr>
-            <td><h4><a id="StudentProfile" href="javascript:;">Perfil de Estudiante:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Perfil de Estudiante:</a></h4></td>
+            <td id="StudentProfile"></td>
         </tr>
         <tr>
-            <td><h4><a id="Tecnologies" href="javascript:;">Tecnologías a utilizar:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Tecnologías a utilizar:</a></h4></td>
+            <td id="Tecnologies"></td>
         </tr>
         <tr>
-            <td><h4><a id="Plazas" href="javascript:;">Número de alumnos requeridos:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Número de alumnos requeridos:</a></h4></td>
+            <td id="Plazas"></td>
         </tr>
         <tr>
-            <td><h4><a id="Accepted" href="javascript:;">Número de alumnos aceptados:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Número de alumnos aceptados:</a></h4></td>
+            <td id="Accepted"></td>
         </tr>
         <tr>
-            <td><h4><a id="ResearcherName" href="javascript:;">Nombre del asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Nombre del asesor:</a></h4></td>
+            <td id="ResearcherName"></td>
         </tr>
         <tr>
-            <td><h4><a id="ResearcherEmail" href="javascript:;">E-mail del asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">E-mail del asesor:</a></h4></td>
+            <td id="ResearcherEmail"></td>
         </tr>
         <tr>
-            <td><h4><a id="University" href="javascript:;">Universidad de adscripción del asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Universidad de adscripción del asesor:</a></h4></td>
+            <td id="University"></td>
         </tr>
         <tr>
-            <td><h4><a id="Work" href="javascript:;">Dependencia de adscripción del asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Dependencia de adscripción del asesor:</a></h4></td>
+            <td id="Work"></td>
 
         </tr>
         <tr>
-            <td><h4><a id="Building" href="javascript:;">Edificio donde labora el asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Edificio donde labora el asesor:</a></h4></td>
+            <td id="Building"></td>
         </tr>
         <tr>
-            <td><h4><a id="Room" href="javascript:;">Cubículo donde se encuentra el asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Cubículo donde se encuentra el asesor:</a></h4></td>
+            <td id="Room"></td>
         </tr>
         <tr>
-            <td><h4><a id="Cv" href="javascript:;">Curriculum Vitae del asesor:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Curriculum Vitae del asesor:</a></h4></td>
+            <td id="Cv"></td>
         </tr>
         <tr>
-            <td><h4><a id="Support" href="javascript:;">Tipo de apoyo al alumno:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Tipo de apoyo al alumno:</a></h4></td>
+            <td id="Support"></td>
         </tr>
         <tr>
-            <td><h4><a id="FunddingAgency" href="javascript:;">Institución que apoya:</a></h4></td>
-            <td></td>
+            <td><h4><a  href="javascript:;">Institución que apoya:</a></h4></td>
+            <td id="FunddingAgency"></td>
         </tr>
     </tbody>
 </table>
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 text-center" style="padding-top:40px;">
+          <?php if ($atributos['uTipo'][0]!='Estudiante'): ?>
+            <button type="submit" class="btn btn-danger" disabled>Solicitar tesis</button>
+          <?php endif; ?>
+          <?php if ($atributos['uTipo'][0]=='Estudiante'): ?>
+            <button type="submit" onclick="#" class="btn btn-success">Solicitar tesis</button>
+          <?php endif; ?>
+
+              <button onclick="window.location.href='summary.php?thesis_id=<?php echo $_GET['thesis_id']; ?>'" class="btn btn-success">Ver resumen</button>
+              <button type="button" onclick="window.location.href='home.php'" class="btn btn-default">Regresar</button>
+        </div>
+      </div>
 
 			</div>
       <div class="col-xl-1 col-lg-4 col-md-4 col-xs-12 sidebar">
@@ -261,9 +251,11 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/inside.js" type="text/javascript">
+    <script src="assets/js/inside.js" type="text/javascript"></script>
+    <script src="assets/plugins/Fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
 
-</script>
+
+
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
