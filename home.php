@@ -1,6 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +29,8 @@
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- include a theme -->
+
 
 
   </head>
@@ -87,52 +90,14 @@
 	        <h1 class="title-ucol">Thesis-Selecter</h1>
 	    </div><!--/ Cierra .container /-->
     </section>
-    <nav class="nav-sistema">
-    		<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header2" aria-controls="navbar-header2" aria-expanded="false">☰</button>
-		<div class="collapse navbar-toggleable-sm" id="navbar-header2">
-	        <ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-	            <li class="nav-item">
-	                <a class="a1 nav-link" aria-expanded="false" href="home.php">
-	                    Inicio
+    <?php if ($atributos['uTipo'][0] == 'Estudiante')
+    {
+      include('assets/views/student/navbar.php');
+    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
+      include('assets/views/researcher/navbar.php');
+    }
+    ?>
 
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
-	                <table>
-	                    <tr>
-	                        <td>
-	                            <![endif]-->
-
-
-
-	                            <!--[if lte IE 6]>
-	                        </td>
-	                    </tr>
-	                </table>
-	                </a><![endif]-->
-	            </li>
-
-
-	            <li class="nav-item">
-	                <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-	                    <div class="oIcono opcion3"></div>
-	                   <span class="glyphicon glyphicon-cog"></span>
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
-                  <ul id="subnavlist" class="dropdown-menu">
-                     <li><a href="#"><small><?php echo $atributos["uNombre"][0]; ?></small></a></li>
-                     <li><a href="assets/federacion/logout.php"><small>Cerrar Sesión</small></a></li>
-                  </ul>
-	            </li>
-              <li class="nav-item">
-	                <a class="a1 nav-link" href="#">
-	                    Sobré Nosotros
-
-	                </a>
-	                <!--[if gte IE 7]><!--><!--<![endif]-->
-	            </li>
-	        </ul>
-	    </div>
-	</nav>
 
 
     <div class="container c-principal">
@@ -156,7 +121,7 @@
               <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
+                    Grupo de investigación
                   </a>
                 </h4>
               </div>
@@ -169,7 +134,7 @@
               <div class="panel-heading" role="tab" id="headingTwo">
                 <h4 class="panel-title">
                   <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
+                    Linea de investigación
                   </a>
                 </h4>
               </div>
@@ -182,7 +147,7 @@
               <div class="panel-heading" role="tab" id="headingThree">
                 <h4 class="panel-title">
                   <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
+                    Tema Central
                   </a>
                 </h4>
               </div>
@@ -230,8 +195,10 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/home.js" type="text/javascript">
-</script>
+    <script src="assets/js/home.js" type="text/javascript"></script>
+    <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

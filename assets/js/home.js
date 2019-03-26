@@ -1,6 +1,27 @@
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function alerta()
+{
+  const alerta = getParameterByName('msg');
+  switch (alerta)
+  {
+  case '1':
+  Swal.fire({ type: 'error', title: 'Error 404', text: 'Selecciona una tesis antes de continuar'});
+  break;
+  case '2':
+  Swal.fire({ type: 'error', title: 'Error 404', text: 'Tesis no encontrada'});
+  break;
+  }
+}
+
 function getAllThesis()
 {
-  $.getJSON(`https://cenedic4.ucol.mx/Thesis-Selecter/Thesis-Selecter-2.0-Back-End/index.php/Thesis/all_thesis`,
+  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/all_thesis`,
   (result) => {})
    .success((result) =>
    {
@@ -9,7 +30,7 @@ function getAllThesis()
    })
    .fail(()=>
    {
-     alert('Error');
+     Swal.fire('Datos no encontrados','Intentelo más adelante','question');
    });
 }
 
@@ -36,7 +57,7 @@ function getThesisHtml(allThesis) {
                     ${ThesisName}
                 </p>
 
-                  <a onclick="guardarID(${ThesisID});" class="btn btn-success" style="outline: 0; text-decoration: none;">
+                  <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
 
                       Ver más <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -48,13 +69,8 @@ function getThesisHtml(allThesis) {
 }
 
 
-function guardarID(thesis_id)
-{
-  sessionStorage.setItem('thesis_id', thesis_id);
-  window.location.assign("inside.php");
-}
-
 
 $(document).ready(function () {
   getAllThesis();
+  alerta();
 });

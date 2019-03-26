@@ -2,7 +2,7 @@ function login()
 {
   $('#login-btn').click(function ()
     {
-      window.location.assign("https://cenedic4.ucol.mx/Thesis-Selecter/home.php");
+      window.location.assign("http://localhost/Thesis-Selecter-2.0-Front-End/home.php");
 
     });
 }
