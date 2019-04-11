@@ -1,7 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-   $atributos['uTipo'][0] = 'Trabajador';
+   
    if ($atributos['uTipo'][0] != 'Trabajador') {
      header('Location: home.php?msg=3');
      // code...
