@@ -1,7 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-   $atributos['uTipo'][0] = 'Trabajador';
+   
 
 
    if (!isset($_GET['thesis_id']))

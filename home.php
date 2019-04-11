@@ -1,7 +1,6 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-   $atributos['uTipo'][0] = 'Trabajador';
 ?>
 
 <!DOCTYPE html>
@@ -171,6 +170,15 @@
 	</div>
 
    </div>
+   <?php
+   if ($atributos['uTipo'][0] == 'Estudiante')
+   {
+     include('assets/modals/Student/profile.php');
+   } elseif ($atributos['uTipo'][0] == 'Trabajador') {
+     
+   }
+
+   ?>
     <footer class="bd-footer text-muted" style="margin-top:20px;"role="contentinfo">
 	    <div class="container">
 		    <div class="row">
