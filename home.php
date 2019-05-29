@@ -175,7 +175,7 @@
    {
      include('assets/modals/Student/profile.php');
    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
-     
+
    }
 
    ?>
@@ -203,15 +203,8 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/home.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function () {
-      getAllThesis();
-      alerta();
-
-    });
-    </script>
+    <script src="assets/js/home/Controller.js" type="text/javascript"></script>
 
 
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->

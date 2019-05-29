@@ -36,7 +36,7 @@ function getAllThesis()
      {
        Swal.fire({ type: 'error', title: 'Error 404', text: 'Nunguna tesis registrada'});
      } else {
-       const thesisHtml = getThesisHtml(result);
+       const thesisHtml = getThesisHtml(result.data.result);
        $('#thesis').html(thesisHtml);
      }
    })

@@ -1,13 +1,6 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-  
-
-
-   if (!isset($_GET['thesis_id']))
-   {
-     header('Location: home.php?msg=1');
-   }
 ?>
 
 <!DOCTYPE html>
@@ -152,6 +145,14 @@
             <td id="StudentProfile"></td>
         </tr>
         <tr>
+            <td><h4><a  href="javascript:;">Nivel:</a></h4></td>
+            <td id="Level"></td>
+        </tr>
+        <tr>
+            <td><h4><a  href="javascript:;">D.E.S:</a></h4></td>
+            <td id="Des"></td>
+        </tr>
+        <tr>
             <td><h4><a  href="javascript:;">Tecnologías a utilizar:</a></h4></td>
             <td id="Tecnologies"></td>
         </tr>
@@ -208,7 +209,7 @@
             <button type="submit" class="btn btn-danger" disabled>Solicitar tesis</button>
           <?php endif; ?>
           <?php if ($atributos['uTipo'][0]=='Estudiante'): ?>
-            <button type="submit" onclick="#" class="btn btn-success">Solicitar tesis</button>
+            <button type="submit" onclick="enviarSolicitud()" class="btn btn-success">Solicitar tesis</button>
           <?php endif; ?>
 
               <button onclick="window.location.href='summary.php?thesis_id=<?php echo $_GET['thesis_id']; ?>'" class="btn btn-success">Ver resumen</button>
@@ -251,18 +252,9 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
-    <script src="assets/js/inside.js" type="text/javascript"></script>
+    <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/js/inside/Controller.js" type="text/javascript"></script>
     <script src="assets/plugins/Fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function ()
-    {
-      getInfoThesis();
-      // getAllThesis();
-
-    });
-
-    </script>
 
 
 

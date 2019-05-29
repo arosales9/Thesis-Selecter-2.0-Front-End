@@ -21,15 +21,16 @@ function alerta()
 
 function getAllThesis(uCuenta)
 {
-  $.getJSON(`http://201.164.196.37/Thesis-Selecter-2.0-Back-End/Thesis/researcher_tesis/${uCuenta}`,
+  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/researcher_tesis`,
   (result) => {})
    .success((result) =>
    {
+     console.log(result);
      if (result.Error=='0')
      {
        Swal.fire({ type: 'warning', title: 'Pagina vacía', text: 'Nunguna tesis registrada'});
      } else {
-       const thesisHtml = getThesisHtml(result);
+       const thesisHtml = getThesisHtml(result.data.result);
        $('#thesis').html(thesisHtml);
      }
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script src="assets/plugins/jQuery/jQuery-3.3.1.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  $.post("http://localhost/Thesis-Selecter-2.0-Back-End/Student/new_student",
+        {
+         UniversityID: 1,
+         SchoolID: 1,
+         ThesisID: 1,
+         EducativeProgramID: 1
+       },
+         function(result){
+           console.log(result);
+        });
+
+        $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Request/getRequests`,
+        (result) => {})
+         .success((result) =>
+         {
+           if (result.Error=='0')
+           {
+             Swal.fire({ type: 'warning', title: 'Pagina vacía', text: 'Nunguna tesis registrada'});
+           } else {
+            console.log(result);
+           }
+
+         })
+         .fail(()=>
+         {
+             Swal.fire({ type: 'error', title: 'Error 404', text: 'Error de conexión'});
+         });
+
+  </script>
+</html>

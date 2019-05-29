@@ -16,7 +16,7 @@ function getInfoThesis()
      {
        window.location.assign('home.php?msg=2');
      } else {
-       getThesisHtml(result);
+       getThesisHtml(result.data.result);
      }
 
    })
