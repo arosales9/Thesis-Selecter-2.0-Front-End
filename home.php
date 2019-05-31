@@ -1,6 +1,8 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
+
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +27,11 @@
 	<!-- jQuery -->
 	<script src="//www.ucol.mx/cms/beta/js/jquery.min.js"></script>
 	<!-- Bootstrap y header & footer agregados -->
+
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+
   <!-- include a theme -->
 
 
@@ -204,6 +208,7 @@
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/js/home/Service.js" type="text/javascript"></script>
     <script src="assets/js/home/Controller.js" type="text/javascript"></script>
 
 

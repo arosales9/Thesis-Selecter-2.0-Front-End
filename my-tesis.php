@@ -1,11 +1,11 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
 
-   // if ($atributos['uTipo'][0] != 'Trabajador') {
-   //   header('Location: home.php');
-   //
-   // }
+   if ($atributos['uTipo'][0] != 'Trabajador') {
+     header('Location: home.php');
+   }
 
 
 ?>
@@ -157,6 +157,7 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
+    <script src="assets/js/my-tesis/Service.js" type="text/javascript"></script>
     <script src="assets/js/my-tesis/Controller.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
 

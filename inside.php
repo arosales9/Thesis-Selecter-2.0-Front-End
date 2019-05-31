@@ -1,6 +1,8 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
+
 ?>
 
 <!DOCTYPE html>
@@ -177,9 +179,8 @@
             <td id="University"></td>
         </tr>
         <tr>
-            <td><h4><a  href="javascript:;">Dependencia de adscripción del asesor:</a></h4></td>
+            <td><h4><a  href="javascript:;">Unidad Académica:</a></h4></td>
             <td id="Work"></td>
-
         </tr>
         <tr>
             <td><h4><a  href="javascript:;">Edificio donde labora el asesor:</a></h4></td>
@@ -209,7 +210,8 @@
             <button type="submit" class="btn btn-danger" disabled>Solicitar tesis</button>
           <?php endif; ?>
           <?php if ($atributos['uTipo'][0]=='Estudiante'): ?>
-            <button type="submit" onclick="enviarSolicitud()" class="btn btn-success">Solicitar tesis</button>
+            <span id="studentBtn"></span>
+
           <?php endif; ?>
 
               <button onclick="window.location.href='summary.php?thesis_id=<?php echo $_GET['thesis_id']; ?>'" class="btn btn-success">Ver resumen</button>
@@ -228,6 +230,7 @@
 	</div>
 
    </div>
+   <?php include('assets/modals/Student/sendRequest.php'); ?>
     <footer class="bd-footer text-muted" style="margin-top:20px;"role="contentinfo">
 	    <div class="container">
 		    <div class="row">
@@ -253,6 +256,7 @@
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/js/inside/Service.js" type="text/javascript"></script>
     <script src="assets/js/inside/Controller.js" type="text/javascript"></script>
     <script src="assets/plugins/Fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
 

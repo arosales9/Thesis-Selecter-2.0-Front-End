@@ -1,61 +1,80 @@
-//****************** SERVICIOS ******************//
-
-function getInfoThesis()
-{
-  const thesis_id = getParameterByName('thesis_id');
-  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/info_thesis/${thesis_id}`,
-  (result) => {})
-   .success((result) =>
-   {
-     service(result);
-     // if (result.Error=='0')
-     // {
-     //   window.location.assign('home.php?msg=2');
-     // } else {
-     //   getThesisHtml(result.data.result);
-     // }
-
-   })
-   .fail(()=>
-   {
-     Swal.fire({
-       type: 'error',
-       title: 'Error de Conexion',
-       showConfirmButton: false,
-       timer: 1500
-     }).then(() => {
-      window.location.assign('home.php');
-    });
-   });
-}
-
-function getProfile() {
-  var profile = $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Student_profile/getStudentProfile`,
-  (result) => {});
-  return profile;
-}
-
-
 //****************** CALLBACK ******************//
-function service(result)
-{
-  if (result.status!=200) {
-    alert(result.status, result.msg)
-  } else {
-    getThesisHtml(result.data.result);
-  }
-}
+var getThesisSrv = () => {
+  InsideSrv().getInfoThesis()
+        .success((result) => {
+          if (result.status!=200) {
+            alert(result.status, result.msg)
+          } else {
+            getThesisHtml(result.data.result);
+          }
+        }).fail(() => {
+          Swal.fire({
+            type: 'error',
+            title: 'Error de Conexion',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+           window.location.assign('home.php');
+        });
+      });
+ };
 
-function profile() {
+ var getStudentRegisterSrv = () => {
+   InsideSrv().getStudentRegister()
+         .success((result) => {
+           validationStudentRegister(result);
 
-}
+         }).fail(() => {
+           Swal.fire({
+             type: 'error',
+             title: 'Error de Conexion',
+             showConfirmButton: false,
+             timer: 1500
+           }).then(() => {
+            window.location.assign('home.php');
+         });
+       });
+  };
+
+var getStudentOptionsSrv = () => {
+  InsideSrv().getStudentOptions()
+        .success((response) => {
+          modalFill(response);
+        }).fail(() => {
+          Swal.fire({
+            type: 'error',
+            title: 'Error de Conexion',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+           window.location.assign('home.php');
+        });
+      });
+ };
+ var addStudentRequestSrv = (data) => {
+   console.log(data);
+   InsideSrv().addStudentRequest(data)
+         .success((response) => {
+           alert(response.status, response.msg);
+           $('#sendRequest').modal('hide');
+         }).fail(() => {
+           Swal.fire({
+             type: 'error',
+             title: 'Error de Conexion',
+             showConfirmButton: false,
+             timer: 1500
+           }).then(() => {
+            window.location.assign('home.php');
+         });
+       });
+  };
 
 
 
 //****************** CONTROLADOR ******************//
 function getThesisHtml(result) {
   result.map((thesis) => {
-		const { ResearcherName, ThesisName, Image, TopicALL, ResearchGroupName, ResearchGroupKey, ResearchLineName, EducativeProgramName, RequirementsALL, PlazasID, Assigned, EmailAddress, UniversityName, SchoolName, BuildingName, RoomName, Link, SupportName, FundingAgencyAllName, DesName, LevelName } = thesis;
+		const { ResearcherName, ThesisName, Image, TopicALL, ResearchGroupName, ResearchGroupKey, ResearchLineName, EducativeProgramName, RequirementsALL, StatusID, PlazasID, Assigned, EmailAddress, UniversityName, SchoolName, BuildingName, RoomName, Link, SupportName, FundingAgencyAllName, DesName, LevelName } = thesis;
 		$('#ResearcherName').text(ResearcherName);
     $('#ThesisName').text(ThesisName);
     $("#Image").attr("src", Image);
@@ -86,25 +105,85 @@ function getThesisHtml(result) {
     }
     $('#Support').text(SupportName);
     $('#FunddingAgency').text(FundingAgencyAllName);
+    if (StatusID=='1')
+    {
+      $('#studentBtn').html(`<button type="submit" onclick="modalShowBtn()" class="btn btn-success">Solicitar tesis</button>`);
+
+    } else {
+      $('#studentBtn').html(`<button type="submit" class="btn btn-danger" disabled>Solicitar tesis</button>`);
+    }
   });
 }
 
-async function enviarSolicitud() {
-  console.log(getProfile());
-  const { value: fruit } = await Swal.fire({
-  title: 'Selecciona tu perfil',
-  input: 'select',
-  inputOptions: {
-    'apples': 'Apples',
-    'bananas': 'Bananas',
-    'grapes': 'Grapes',
-    'oranges': 'Oranges'
-  },
-  inputPlaceholder: 'Perfil',
-  showCancelButton: true,
- });
+function modalFill(response) {
+  console.log(response);
+  var schoolOp = `<option value=""></option>`;
+  var profileOp = `<option value=""></option>`;
+  response.data.result.educative_program.map((profile) => {
+    const { EducativeProgramName, EducativeProgramID} = profile;
+    profileOp = profileOp.concat(`<option value="${EducativeProgramID}"> ${EducativeProgramName}</option>`);
+  });
+
+  response.data.result.school.map((school) => {
+    const { SchoolID, SchoolName} = school;
+    schoolOp = schoolOp.concat(`<option value="${SchoolID}"> ${SchoolName}</option>`);
+  });
+  $('#profileSelect').html(profileOp);
+  $('#schoolSelect').html(schoolOp);
+  $('#sendRequest').modal('show');
+
+
+
+
 }
 
+function validationStudentRegister(result)
+{
+  console.log(result.data);
+  if (result.data!=false) {
+    Swal.fire({
+    title: 'Solicitud',
+    text: "Seguro de enviar solicitud",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#2DAD45',
+    cancelButtonColor: '#A8AFA9',
+    confirmButtonText: 'Enviar',
+    cancelButtonText: 'Cancelar',
+   }).then((result) => {
+   if (result.value) {
+     const thesis_id = getParameterByName('thesis_id');
+     const profile_id = 0;
+     const school_id = 0;
+     var data = [thesis_id, profile_id, school_id];
+     addStudentRequestSrv(data);
+  }
+})
+
+
+  } else {
+    getStudentOptionsSrv();
+  }
+
+}
+
+function modalShowBtn()
+{
+  getStudentRegisterSrv();
+}
+
+function registroBtn()
+{
+  $("#frm_addStudent").on("submit", function (e)
+  {
+    e.preventDefault();
+    const thesis_id = getParameterByName('thesis_id');
+    const profile_id = $('#profileSelect').val();
+    const school_id = $('#schoolSelect').val();
+    var data = [thesis_id, profile_id, school_id];
+    addStudentRequestSrv(data);
+  });
+}
 //****************** OTROS ******************//
 
 //ALERTAS
@@ -113,25 +192,25 @@ function alert(status, msg)
   switch (status)
   {
   case 200:
-  Swal.fire({ type: 'success', title: status, text: msg});
+  Swal.fire({ type: 'success', title: status, text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 201:
-  Swal.fire({ position: 'top-end', type: 'success', title: 'msg', showConfirmButton: false, timer: 1500 });
+  Swal.fire({ type: 'success', title: msg, showConfirmButton: false, timer: 1500 });
   break;
   case 202:
-  Swal.fire({ type: 'success', title: status, text: msg});
+  Swal.fire({ type: 'success', title: status, text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 204:
-  Swal.fire({ type: 'question', title: 'Ups!', text: msg});
+  Swal.fire({ type: 'question', title: 'Ups!', text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 400:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: false, timer: 1500}).then(() => { window.location.assign('home.php')});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   case 401:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: false, timer: 1500}).then(() => { window.location.assign('home.php')});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   case 404:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: false, timer: 1500}).then(() => { window.location.assign('home.php')});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   }
 }
@@ -168,5 +247,6 @@ function getParameterByName(name) {
 
 //****************** RUN ******************//
 $(document).ready(function() {
- getInfoThesis()
+ getThesisSrv();
+ registroBtn();
 });

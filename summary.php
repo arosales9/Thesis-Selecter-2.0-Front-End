@@ -1,6 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
+   $atributos['uTipo'][0] = 'Trabajador';
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +29,9 @@
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
 
 
   </head>
@@ -176,8 +180,11 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
+    <script src="assets/js/summary/Service.js" type="text/javascript"></script>
     <script src="assets/js/summary/Controller.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/plugins/Fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
+
 
     <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
     <!--[if lt IE 9]>

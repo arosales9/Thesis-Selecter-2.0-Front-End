@@ -1,95 +1,159 @@
-//SERVICIOS
-
-function getAllThesisSrv()
-{
-
-  $.getJSON(`http://localhost/Thesis-Selecter-2.0-Back-End/Thesis/researcher_tesis`,
-  (result) => {})
-   .success((result) =>
-   {
-     service(result);
-   })
-   .fail(()=>
-   {
-     Swal.fire({ type: 'error', title: 'Error 404', text: 'Error de conexón'});
-   });
+//****************** CALLBACK ******************//
+var getThesisSrv = () => {
+  HomeSrv().getAllThesis()
+    .success((result) => {
+      if (result.status!=200) {
+        alert(result.status, result.msg)
+      } else {
+        const thesisHtml = getThesisHtml(result.data.result);
+        $('#thesis').html(thesisHtml);
+      }
+     })
+    .fail(()=>
+      {
+        Swal.fire({ type: 'error', title: 'Error 404', text: 'Error de conexón'});
+      });
 }
 
+var editPostSrv = (data) => {
+  HomeSrv().editPost(data)
+        .success((response) => {
+          if (response.status!=200) {
+          alert(response.status, response.msg);
+          getThesisSrv();
+        }
+        }).fail(() => {
+          Swal.fire({
+            type: 'error',
+            title: 'Error de Conexion',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+           window.location.assign('my-tesis.php');
+        });
+      });
+ };
 
-//Llamada de SERVICIOS
-function service(result)
-{
-  console.log(result);
-  if (result.status!=200) {
-    alert(result.status, result.msg)
-  } else {
-    const thesisHtml = getThesisHtml(result.data.result);
-    $('#thesis').html(thesisHtml);
-  }
-}
 
 
 
-//CONTROLADOR
-
+//****************** CONTROLADOR ******************//
 function getThesisHtml(allThesis) {
+  var html;
 	const thesisHtml = allThesis.map((thesis) => {
-		const { ThesisID, ThesisName, StatusName, Image } = thesis;
-		return `<article class="col-md-3 col-sm-6 col-xs-12" style="">
-        <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+		const { ThesisID, ThesisName, StatusName, Image, StatusID, Post } = thesis;
+    if (Post == 1) {
+      Value = "checked";
+    } else {
+      Value = "";
 
-            <div class="pricing-head">
-                     <h3 class="bg-success head">Tesis
-                <span class="enunciado">
-                    ${StatusName}
-                </span>
-                </h3>
-                <span>
-                <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-                    <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-                </figure>
-                </span>
-            </div>
-            <div class="pricing-footer footer-stylesheet">
-                <p class="thesis-name parrafo">
-                    ${ThesisName}
-                </p>
+    }
+    if (StatusID=='1')
+    {
+      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
+          <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
 
-                  <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
+              <div class="pricing-head">
+                       <h3 class="bg-success head">Tesis
+                  <span class="enunciado">
+                      ${StatusName}
+                  </span>
+                  </h3>
+                  <span>
+                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
+                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
+                  </figure>
+                  </span>
+              </div>
+              <div class="pricing-footer footer-stylesheet">
+                  <p class="thesis-name parrafo">
+                      ${ThesisName}<br><br>
+                      <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
 
-                      Ver más <i class="m-icon-swapright m-icon-white"></i>
-                  </a>
-            </div>
-        </div>
-        </article>`;
+                          Ver más <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                  </p>
+                  <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
+                  <label class="form-check-label" for="post">Publicar</label>
+              </div>
+          </div>
+          </article>`;
+    } else {
+      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
+          <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+
+              <div class="pricing-head">
+                       <h3 class="head">Tesis
+                  <span class="enunciado">
+                      ${StatusName}
+                  </span>
+                  </h3>
+                  <span>
+                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
+                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
+                  </figure>
+                  </span>
+              </div>
+              <div class="pricing-footer footer-stylesheet">
+                  <p class="thesis-name parrafo">
+                      ${ThesisName}<br><br>
+                      <a href="inside.php?thesis_id=${ThesisID}" class="btn" style="outline: 0; text-decoration: none; background-color: #D6DCD7;">
+
+                          Ver más <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                  </p>
+                  <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
+                  <label class="form-check-label" for="post">Publicar</label>
+              </div>
+          </div>
+          </article>`;
+
+    }
+		return html;
 	});
 	return thesisHtml.join('');
 }
+
+$(document).ready(function() {
+ getThesisSrv();
+});
+
+function postCheck(id) {
+  if($(`#post${id}`).is(':checked')) {
+      data = [id,1];
+  } else {
+    data = [id,0];
+  }
+  editPostSrv(data);
+}
+
+
+//****************** OTROS ******************//
 
 function alert(status, msg)
 {
   switch (status)
   {
   case 200:
-  Swal.fire({ type: 'success', title: status, text: msg});
+  Swal.fire({ type: 'success', title: status, text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 201:
-  Swal.fire({ position: 'top-end', type: 'success', title: 'msg', showConfirmButton: false, timer: 1500 });
+  Swal.fire({ type: 'success', title: msg, showConfirmButton: false, timer: 1500 });
   break;
   case 202:
-  Swal.fire({ type: 'success', title: status, text: msg});
+  Swal.fire({ type: 'success', title: status, text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 204:
-  Swal.fire({ type: 'question', title: msg });
+  Swal.fire({ type: 'question', title: 'Ups!', text: msg, confirmButtonColor: '#2DAD45'});
   break;
   case 400:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   case 401:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   case 404:
-  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg});
+  Swal.fire({ type: 'error', title: 'Error: '+status, text: msg, showConfirmButton: true, confirmButtonColor: '#2DAD45'}).then(() => { window.location.assign('home.php')});
   break;
   }
 }
@@ -114,9 +178,3 @@ function alert(status, msg)
 // El cliente no posee los permisos necesarios para cierto contenido, por lo que el servidor está rechazando otorgar una respuesta apropiada.
 // 404 Not Found
 // El servidor no pudo encontrar el contenido solicitado. Este código de respuesta es uno de los más famosos dada su alta ocurrencia en la web.
-
-
-//INICIADOR
-$(document).ready(function() {
- getAllThesisSrv();
-});
