@@ -1,13 +1,17 @@
 //****************** CALLBACK ******************//
 
   var getRequestSrv = () => {
+    console.log(RequestSrv().getRequest());
     RequestSrv().getRequest()
     .success((result) =>
     {
       if (result.status!=200) {
-        alert(result.status, result.msg)
+        alert(result.status, result.msg);
+        notification(result.data.request);
       } else {
         getRequestHtml(result.data.result);
+        notification(result.data.request);
+
       }
     })
     .fail(()=>
@@ -27,6 +31,7 @@
     RequestSrv().addRevert(id)
     .success((result) =>
     {
+      console.log('llego', result);
       if (result.status!=200) {
         alert(result.status, result.msg);
         getRequestSrv();
@@ -97,6 +102,15 @@
 
 
   //****************** CONTROLADOR ******************//
+  function notification(request) {
+    if (request>0)
+    {
+      $('#notification').html(`<span class="btn-danger btn-sm" style="-webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px;">${request}</span>`);
+    } else {
+      $('#notification').html(``);
+    }
+  }
+
   function getRequestHtml(result) {
     var process = "";
     var accepted = "";
@@ -141,7 +155,7 @@
           <td scope="col">${EmailAddress}</td>
           <td scope="col">${SchoolName}</td>
           <td scope="col">${EducativeProgramName}</td>
-          <td scope="col"><button type="button" class="btn btn-success btn-sm" onclick="acceptBtn(${RequestID})"><i class="glyphicon glyphicon-ok"></i></button><button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove" onclick="rejectBtn(${RequestID})"></i></button></td>
+          <td scope="col"><button type="button" class="btn btn-success btn-sm" onclick="acceptBtn(${RequestID})"><i class="glyphicon glyphicon-ok"></i></button> <button type="button" class="btn btn-danger btn-sm" onclick="rejectBtn(${RequestID})"><i class="glyphicon glyphicon-remove" ></i></button></td>
         </tr>`);
       break;
       case '4':
@@ -169,14 +183,17 @@
 
   function revertBtn(id)
   {
+    console.log('Revertir');
     addRevertSrv(id);
   }
   function rejectBtn(id)
   {
+    console.log('Reject');
     addRejectSrv(id);
   }
   function acceptBtn(id)
   {
+    console.log('Acceptar');
     addAcceptSrv(id);
   }
 

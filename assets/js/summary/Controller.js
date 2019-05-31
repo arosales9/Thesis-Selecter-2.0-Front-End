@@ -5,9 +5,12 @@
     .success((result) =>
     {
       if (result.status!=200) {
-        alert(result.status, result.msg)
+        alert(result.status, result.msg);
+        notification(result.data.request);
+
       } else {
         getThesisHtml(result.data.result);
+        notification(result.data.request);
       }
     })
     .fail(()=>
@@ -25,6 +28,16 @@
 
 
   //****************** CONTROLADOR ******************//
+  function notification(request) {
+    if (request>0)
+    {
+      $('#notification').html(`<span class="btn-danger btn-sm" style="-webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px;">${request}</span>`);
+    } else {
+      $('#notification').html(``);
+
+    }
+  }
+
   function getThesisHtml(result) {
     result.map((thesis) => {
   		const { ThesisName, Image, Summary } = thesis;

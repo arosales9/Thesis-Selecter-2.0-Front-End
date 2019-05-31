@@ -3,10 +3,13 @@ var getThesisSrv = () => {
   HomeSrv().getAllThesis()
     .success((result) => {
       if (result.status!=200) {
-        alert(result.status, result.msg)
+        alert(result.status, result.msg);
+        notification(result.data.request);
       } else {
         const thesisHtml = getThesisHtml(result.data.result);
         $('#thesis').html(thesisHtml);
+        notification(result.data.request);
+
       }
      })
     .fail(()=>
@@ -38,6 +41,16 @@ var editPostSrv = (data) => {
 
 
 //****************** CONTROLADOR ******************//
+function notification(request) {
+  if (request>0)
+  {
+    $('#notification').html(`<span class="btn-danger btn-sm" style="-webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px;">${request}</span>`);
+  } else {
+    $('#notification').html(``);
+
+  }
+}
+
 function getThesisHtml(allThesis) {
   var html;
 	const thesisHtml = allThesis.map((thesis) => {

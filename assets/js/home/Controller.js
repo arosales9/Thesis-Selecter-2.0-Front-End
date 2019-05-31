@@ -7,6 +7,7 @@ var getThesisSrv = () => {
       } else {
         const thesisHtml = getThesisHtml(result.data.result);
         $('#thesis').html(thesisHtml);
+        notification(result.data.request)
       }
      })
     .fail(()=>
@@ -19,7 +20,15 @@ var getThesisSrv = () => {
 
 
 //****************** CONTROLADOR ******************//
+function notification(request) {
+  if (request>0)
+  {
+    $('#notification').html(`<span class="btn-danger btn-sm" style="-webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px;">${request}</span>`);
+  } else {
+    $('#notification').html(``);
 
+  }
+}
 function getThesisHtml(allThesis) {
   var html;
 	const thesisHtml = allThesis.map((thesis) => {

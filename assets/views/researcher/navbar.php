@@ -44,9 +44,7 @@
           </li>
           <li class="nav-item">
               <a class="a1 nav-link" aria-expanded="false" href="solicitudes.php">
-                  Solicitudes<span class="btn-danger btn-sm" style="-webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;">1</span>
+                  Solicitudes <span id="notification"></span>
 
               </a>
               <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
