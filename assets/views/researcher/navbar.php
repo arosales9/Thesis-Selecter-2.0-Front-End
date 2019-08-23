@@ -44,7 +44,7 @@
           </li>
           <li class="nav-item">
               <a class="a1 nav-link" aria-expanded="false" href="solicitudes.php">
-                  Solicitudes
+                  Solicitudes <span id="notification"></span>
 
               </a>
               <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>

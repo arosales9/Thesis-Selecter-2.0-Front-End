@@ -1,15 +1,15 @@
 .head
 {
   font-weight: 300;
-  color: #fafafa;
+  color: white;
   padding: 12px 0;
-  background: #44b1c1;
+  background-color: #D6DCD7;
   border-bottom: none;
   margin: 0;
   line-height: normal;
   text-align: center;
   direction: ltr;
-  font: 400 13px 'Open Sans', Arial, sans-serif;
+  font: 400 40px 'Open Sans', Arial, sans-serif;
 }
 
 .enunciado

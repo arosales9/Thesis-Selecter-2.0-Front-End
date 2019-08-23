@@ -23,11 +23,6 @@
           </li>
 
 
-          <li class="nav-item">
-              <a class="a2 nav-link data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-                  <div class="oIcono opcion3"></div>
-                 Sobre Nosotros
-              </a>
               <!--[if gte IE 7]><!--><!--<![endif]-->
               <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
