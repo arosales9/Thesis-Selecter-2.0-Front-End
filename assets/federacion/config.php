@@ -1,5 +1,5 @@
 <?php
-$saml_lib_path = '/var/simplesamlphp/lib/_autoload.php';  //La ruta donde se encuentra la librer�a principal de simplesamlphp
+$saml_lib_path = 'B:\SAML\lib\_autoload.php';  //La ruta donde se encuentra la librer�a principal de simplesamlphp
  require_once($saml_lib_path);
  $SP_URL = 'http://'.$_SERVER['SERVER_NAME']."/demo";
 // echo $SP_URL; // url de nuestro servidor.
