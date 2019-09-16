@@ -9,7 +9,10 @@ echo $cabecera; ?>
 </p>
 <h4>¡Acceder!</h4>
 <button id="login-btn" type="button" class="btn btn-success"name="button">Ingresar</button>
+<br>aaa
 </div>
+
 <script src="assets/js/login.js" charset="utf-8"></script>
 <?php $footer=file_get_contents("http://www.ucol.mx/cms/footerapp.php");
 echo $footer; ?>
+<br>ikhopihpi
