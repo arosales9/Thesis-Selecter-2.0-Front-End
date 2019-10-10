@@ -1,7 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-   $atributos['uTipo'][0] = 'Trabajador'; // puedo canviar el valor Estudiante
+   $atributos['uTipo'][0] = 'Trabajador'; // puedo canviar el valor Estudiante o Trabajador
    //echo '<script language="javascript">alert('.$atributos['uTipo'][0].');</script>'; 
    //echo $atributos['uTipo'][0];
 ?>
@@ -10,28 +10,28 @@
 <html lang="es">
 
   <head>
-  	<!-- meta tags requeridos -->
-  	<meta charset="utf-8"/>
-  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  	<meta name="author" content="Universidad de Colima"/>
-  	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-  	<meta property="og:type" content="website"/>
-  	<meta property="og:description" content="Universidad de Colima"/>
-  	<meta property="og:image" content="http://wayf.ucol.mx/ucol_mini.png"/>
-  	<meta property="og:locale:alternate" content="es_ES" />
-  	<meta property="og:site_name" content="Universidad de Colima" />
+    <!-- meta tags requeridos -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="author" content="Universidad de Colima"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Universidad de Colima"/>
+    <meta property="og:image" content="http://wayf.ucol.mx/ucol_mini.png"/>
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:site_name" content="Universidad de Colima" />
 
-  	<!-- Titulo principal -->
-  	<title>Universidad de Colima</title>
-  	<!-- link requeridos -->
-  	<link href="http://wayf.ucol.mx/ucol_mini.png" rel="image_src" />
-  	<link href="//www.ucol.mx/cms/img/favicon.ico" type="image/x-icon" rel="icon" />
-  	<!-- jQuery -->
-  	<script src="//www.ucol.mx/cms/beta/js/jquery.min.js"></script>
-  	<!-- Bootstrap y header & footer agregados -->
+    <!-- Titulo principal -->
+    <title>Universidad de Colima</title>
+    <!-- link requeridos -->
+    <link href="http://wayf.ucol.mx/ucol_mini.png" rel="image_src" />
+    <link href="//www.ucol.mx/cms/img/favicon.ico" type="image/x-icon" rel="icon" />
+    <!-- jQuery -->
+    <script src="//www.ucol.mx/cms/beta/js/jquery.min.js"></script>
+    <!-- Bootstrap y header & footer agregados -->
 
-  	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
-  	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
+    <link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
+    <link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- include a theme -->
@@ -41,54 +41,33 @@
     <link rel="stylesheet" href="assets/css/Bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/fontawesome-free-5.10.1/css/all.css">
     <script defer src="fontawesome-free-5.10.1/js/all.js"></script>
-    <script src="assets/Jquery/jquery-3.4.1.js"></script>
-    <script src="assets/css/Bootstrap/js/bootstrap.js"></script>-->
+    <script src="assets/Jquery/jquery-3.4.1.js"></script>-->
     <link rel="stylesheet" href="assets/css/Estilos.css">
+    <!--<script defer src="assets/fontawesome-free-5.10.1/js/all.js"></script>-->m
   </head>
 
   <body>
-  	<div id="estructura">
-    	<!-- Fixed navbar -->
-    	<nav class="navbar navbar-light bg-faded theme-primary pos-f-t">
-    		<div class="container">
-    			<div class="row">
-    				<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-    					<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false">&#x2630;
-              </button>			        
+    <div id="estructura">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-light bg-faded theme-primary pos-f-t" >
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+              <button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false">&#x2630;
+              </button>             
               <div class="collapse navbar-toggleable-sm" id="navbar-header">
                 <a class="navbar-brand" id="logo" href="//www.ucol.mx/">Universidad de Colima</a>
                 <span class="home-href"><a href="./"></a></span>
-    			            						   <!--<ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-                            						   <li class="nav-item">
-                            						      <a class="nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                            						         Opcion 1
-                            						      </a>
-                            						           <ul id="subnavlist" class="dropdown-menu">
-                            						              <li><a href="#">Sub opcion 1</a></li>
-                            						              <li><a href="#">Sub opcion 2</a></li>
-                            						           </ul>
-                            						   </li>
-                            						   <li class="nav-item">
-                            						      <a class="nav-link" href="#">
-                            						         Opcion 2
-                            						      </a>
-                            						   </li>
-                            						   <li class="nav-item">
-                            						      <a class="nav-link" href="#">
-                            						         Opcion 3
-                            						      </a>
-                            						   </li>
-                            						</ul>-->
-    			    </div>
-    				</div>
-    			</div>
-    		</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav> 
       <!-- /navbar -->
 
       <section class="page-breadcrumb">
         <div class="container ">
-         	<div id="path">
+          <div id="path">
             <ol class="breadcrumb">
               <li>Usted está en:</li>
               <li><a href="">Inicio</a></li>
@@ -99,8 +78,8 @@
         </div>
       </section>
       <!--cierra path-->
-    	
-      <section class="page-header">
+      
+      <section class="page-header" >
         <div class="container">
           <h1 class="title-ucol">Thesis-Selecter</h1>
         </div>
@@ -119,109 +98,324 @@
         }
       ?>
 
-      <div class="container c-principal">
-        <div class="col-md-12" style="margin-bottom: 40px;">
-          <h1>Selección de tema de tesis</h1>
-            <div class="search-result-item">
-                <p>Descubre tu tesis ideal a través de esta página web, la cual te permite seleccionar dinámicamente el tema de tesis de grado de acuerdo a tus intereses académicos (tema central, grupo de investigación, línea de investigación, perfil del estudiante, asesor, etc).</p>
-            </div>
-        </div>
-        <!--         <header class="Title-main">
-          <h1 class="pl-3 tx">Seleccion de tema de tesis</h1>
+      <div class="Container-full"><!--container-full-->
+        <header class="Title-main text-center"><!--ocupara el 100% en top-->
+          <h1 style="padding-left: 15px;">Seleccion de tema de tesis</h1>
           <div class="subtitle-main">
             <p>
               Descubre tu tesis ideal a través de esta página web, la cual te permite seleccionar dinámicamente el tema de tesis de grado de acuerdo a tus intereses académicos (tema central, grupo de investigación, línea de investigación, perfil del estudiante, asesor, etc).
             </p>
           </div>
-        </header> -->
+        </header>
 
-        <div class="row p-contenido">
-          <div class="col-xl-3 col-lg-4 col-md-4 col-xs-12 sidebar">
-          <div class="pricing-head margin-bottom-20">
-            <h3>Filtros
-            <span>
-                Filtro de búsqueda de tesis
-            </span>
-            </h3>
-          </div>
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Grupo de investigación
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Linea de investigación
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                  <div class="panel-body">
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Tema Central
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                  <div class="panel-body">
+        <div class="line">
+        </div>
 
-                  </div>
-                </div>
+        <div class="container full-tesis">
+
+          <aside class="filters-menu">
+            <!--Encabezado de los filtros-->
+            <div class="filters-menu-title">
+              <h3>
+                Filtros
+              </h3>
+              <span>Filtros de busqueda de tesis</span>
+            </div>
+
+            <!--Temas Centrales-->
+            <div class="panel text-left">
+              <!--Click Panel-->
+              <div>
+                <h5 class="collapsed" aria-expanded="false" data-target="#panelOne" data-toggle="collapse">
+                  Temas Centrales
+                  <a class="collapsed indicator" aria-expanded="false" href="#panelOne" data-toggle="collapse">
+                    <!--<i class="fas fa-caret-down" aria-hidden="true">
+                    </i>-->
+                    <i aria-hidden="true">▼</i>
+                  </a>
+                </h5>
+              </div>
+
+              <!--Content panel-->
+              <div class="out collapse" id="panelOne" aria-expanded="false">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="checkbox form-group">
+                      <label>
+                        <div class="checker">
+                          <span>
+                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
+                          </span>
+                        </div>
+                        Internet de las cosas
+                      </label>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-          <!-- <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"> <--Con  contenido izquierdo o derecho uno de los dos
-          <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 main"> <--Pagina completa -->
-          <div id="thesis" class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
-          </div>
-        </div>
-        <div class="row p-inferior">
-  			<div class="col-md-12 p-content">   
-        </div>
+
+            <!--Grupo de investigacion-->
+            <div class="panel text-left">
+              <!--Click Panel-->
+              <div>
+                <h5 class="pl-2 collapsed" aria-expanded="false" data-target="#panelTwo" data-toggle="collapse">
+                  Grupo de investigacion
+                  <a class="collapsed indicator" aria-expanded="false" href="#panelTwo" data-toggle="collapse">
+                    <!--<i class="fas fa-caret-down" aria-hidden="true">
+                    </i>-->
+                    <i aria-hidden="true">▼</i>
+                  </a>
+                </h5>
+              </div>
+
+              <!--Content panel-->
+              <div class="out collapse" id="panelTwo" aria-expanded="false">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="checkbox form-group">
+                      <label>
+                        <div class="checker">
+                          <span>
+                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
+                          </span>
+                        </div>
+                        Internet de las cosas
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--Linea de investigacion-->
+            <div class="panel text-left">
+              <!--Click Panel-->
+              <div>
+                <h5 class="pl-2 collapsed" aria-expanded="false" data-target="#panelThree" data-toggle="collapse">
+                  Linea de investigacion
+                  <a class="collapsed indicator" aria-expanded="false" href="#panelThree" data-toggle="collapse">
+                    <!--<i class="fas fa-caret-down" aria-hidden="true">
+                    </i>-->
+                    <i aria-hidden="true">▼</i>
+                  </a>
+                </h5>
+              </div>
+
+              <!--Content panel-->
+              <div class="out collapse" id="panelThree" aria-expanded="false">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="checkbox form-group">
+                      <label>
+                        <div class="checker">
+                          <span>
+                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
+                          </span>
+                        </div>
+                        Internet de las cosas
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--Perfil del estudiante-->
+            <div class="panel text-left">
+              <!--Click Panel-->
+              <div>
+                <h5 class="pl-2 collapsed" aria-expanded="false" data-target="#panelFour" data-toggle="collapse">
+                  Perfil del estudiante
+                  <a class="collapsed indicator" aria-expanded="false" href="#panelFour" data-toggle="collapse">
+                    <!--<i class="fas fa-caret-down" aria-hidden="true">
+                    </i>-->
+                    <i aria-hidden="true">▼</i>
+                  </a>
+                </h5>
+              </div>
+
+              <!--Content panel-->
+              <div class="out collapse" id="panelFour" aria-expanded="false">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="checkbox form-group">
+                      <label>
+                        <div class="checker">
+                          <span>
+                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
+                          </span>
+                        </div>
+                        Internet de las cosas
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--Asesor-->
+            <div class="panel text-left">
+              <!--Click Panel-->
+              <div>
+                <h5 class="pl-2 collapsed" aria-expanded="false" data-target="#panelFive" data-toggle="collapse">
+                  Asesor
+                  <a class="collapsed indicator" aria-expanded="false" href="#panelFive" data-toggle="collapse">
+                    <!--<i class="fas fa-caret-down" aria-hidden="true">
+                    </i>-->
+                    <i aria-hidden="true">▼</i>
+                  </a>
+                </h5>
+              </div>
+
+              <!--Content panel-->
+              <div class="out collapse" id="panelFive" aria-expanded="false">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="checkbox form-group">
+                      <label>
+                        <div class="checker">
+                          <span>
+                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
+                          </span>
+                        </div>
+                        Internet de las cosas
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <!--contenedor de las tesis-->
+          <main class="container-full-body" style="float: left;">
+            <div class="container full-tesis">
+              <div class="row ml-1 mr-1 full-tesis">
+
+                <!--Aqui inician las tesis-->
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3>Tesis</h3>
+                      <span>Disponible</span>
+                    </div>
+
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
+                        </a>
+                      </figure>
+                    </div>
+
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        Plataforma Thesis-Selecter de la Universidad de Colima
+                      </p>
+         
+                      <a class="btn btn-success btn-click">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3>Tesis</h3>
+                      <span>Disponible</span>
+                    </div>
+
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
+                        </a>
+                      </figure>
+                    </div>
+
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        Plataforma Thesis-Selecter de la Universidad de Colima
+                      </p>
+         
+                      <a class="btn btn-success btn-click">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3>Tesis</h3>
+                      <span>Disponible</span>
+                    </div>
+
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
+                        </a>
+                      </figure>
+                    </div>
+
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        Plataforma Thesis-Selecter de la Universidad de Colima
+                      </p>
+         
+                      <a class="btn btn-success btn-click">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+                <!--Aqui terminan las tesis-->
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </div>
 
+    <div class="line" style="margin-top: 15px;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      hola
+      <br><br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <h1>
     <?php
-      if ($atributos['uTipo'][0] == 'Estudiante')
+      echo $atributos['uTipo'][0];
+    ?>
+    ------------------
+    </h1>
+
+    <?php
+      /*if ($atributos['uTipo'][0] == 'Estudiante')
       {
         include('assets/modals/Student/profile.php');
       }
       elseif ($atributos['uTipo'][0] == 'Trabajador') 
       {
         //nose que hace
-      }
+      }*/
     ?>
-
-    <footer class="bd-footer text-muted" style="margin-top:20px;"role="contentinfo">
-  	    <div class="container">
-  		    <div class="row">
-  			    <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 center-links">
-  				    <img src="//www.ucol.mx/cms/beta/img/icon/ubicacion.svg" width="20"> Direcci&oacute;n: Av. Universidad No. 333, Las V&iacute;boras; CP 28040 Colima, Colima, M&eacute;xico
-  			    </div>
-  			    <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 center-links">
-  				    &copy; Derechos Reservados 2018-2021 Universidad de Colima
-  			    </div>
-  		    </div>
-  	    </div>
-    </footer>
 
     <!-- JS Bootstrap -->
     <script src="//www.ucol.mx/cms/beta/dist/js/tether.min.js" type="text/javascript"></script>
@@ -234,48 +428,9 @@
     <script src="//www.ucol.mx/cms/beta/js/purl.js"></script>
     <script src="//www.ucol.mx/cms/beta/js/custom.min.js" type="text/javascript"></script>
     <script src="//www.ucol.mx/cms/js/custom.js" type="text/javascript"></script>
+    <!--  -->
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="assets/js/home/Service.js" type="text/javascript"></script>
     <script src="assets/js/home/Controller.js" type="text/javascript"></script>
-
-
-      <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
-      <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-      <!--script>
-          // Carousel Auto-Cycle
-  		$(document).ready(function() {
-  			//$('#navcontainer > #navlist').attr('data-spy','affix').attr('data-offset-top',100).attr('data-offset-bottom', 531);
-  			$('#sliderNaN>.rslides').responsiveSlides({auto:true,pager:true,nav:true,timeout:6000,speed:800});
-  			$(function () {
-  			  $('[data-toggle="tooltip"]').tooltip()
-  			})
-  		    $( '.form-search-ucol' ).click( function() {
-  				$( this ).addClass( 'active' );
-  			}).focusout( function() {
-  				$( this ).removeClass( 'active' );
-  			});
-  			$('#navcontainer > #navlist').affix({
-  			  offset: {
-  			    top: 100,
-  			    bottom: function () {
-  			      return (this.bottom = $('footer').outerHeight(true)+100)
-  			    }
-  			  }
-  			});
-  			var modWidth = $( '#navcontainer' ).width() - 30;
-  		    $( '#navlist' ).width( modWidth );
-  			jQuery( window ).resize( function () {
-  		        if ( jQuery( window ).width() ) {
-  			        var modWidth = $( '#navcontainer' ).width() - 30;
-  		           $( '#navlist' ).width( modWidth );
-  		        }
-  			});
-
-
-  		});
-      </script-->
   </body>
 </html>

@@ -51,3 +51,19 @@ article > div:hover
   border: 2px solid green;
 
 }
+
+/*Otros*/
+
+.pt{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mt{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.border{
+  border-right: 1px solid #eeeeee;
+}
