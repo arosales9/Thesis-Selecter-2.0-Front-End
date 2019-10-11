@@ -43,7 +43,7 @@
     <script defer src="fontawesome-free-5.10.1/js/all.js"></script>
     <script src="assets/Jquery/jquery-3.4.1.js"></script>-->
     <link rel="stylesheet" href="assets/css/Estilos.css">
-    <!--<script defer src="assets/fontawesome-free-5.10.1/js/all.js"></script>-->m
+    <!--<script defer src="assets/fontawesome-free-5.10.1/js/all.js"></script>-->
   </head>
 
   <body>
@@ -385,36 +385,15 @@
       </div>
     </div>
 
-    <div class="line" style="margin-top: 15px;">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      hola
-      <br><br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-
-    <h1>
     <?php
-      echo $atributos['uTipo'][0];
-    ?>
-    ------------------
-    </h1>
-
-    <?php
-      /*if ($atributos['uTipo'][0] == 'Estudiante')
+      if ($atributos['uTipo'][0] == 'Estudiante')
       {
         include('assets/modals/Student/profile.php');
       }
       elseif ($atributos['uTipo'][0] == 'Trabajador') 
       {
         //nose que hace
-      }*/
+      }
     ?>
 
     <!-- JS Bootstrap -->

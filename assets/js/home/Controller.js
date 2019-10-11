@@ -18,6 +18,14 @@ var getThesisSrv = () => {
 
 
 
+$(document).ready(function(){
+  setTimeout(function() { 
+    $('#contenedor').fadeOut(500);
+  }, 3000);
+});
+
+
+
 
 //****************** CONTROLADOR ******************//
 function notification(request) {
@@ -35,7 +43,7 @@ function getThesisHtml(allThesis) {
 		const { ThesisID, ThesisName, StatusName, Image, StatusID } = thesis;
     if (StatusID=='1')
     {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
+      html = `<article class="col-md-3 col-sm-6 col-xs-12">
           <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
 
               <div class="pricing-head">
@@ -63,7 +71,7 @@ function getThesisHtml(allThesis) {
           </div>
           </article>`;
     } else {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
+      html = `<article class="col-md-3 col-sm-6 col-xs-12">
           <div class="pricing hover-effect" style="border: 1px solid gray; position: relative; margin-bottom: 15px;">
 
               <div class="pricing-head">

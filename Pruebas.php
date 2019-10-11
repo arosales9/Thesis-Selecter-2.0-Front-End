@@ -1,3 +1,11 @@
+<?php
+   require_once("assets/federacion/login.php");
+   $atributos = $saml->getAttributes();
+   //$atributos['uTipo'][0] = 'Trabajador'; // puedo canviar el valor Estudiante o Trabajador
+   //echo '<script language="javascript">alert('.$atributos['uTipo'][0].');</script>'; 
+   //echo $atributos['uTipo'][0];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -44,12 +52,16 @@
       modal 1
     </button>
 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">
+      modal 1
+    </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal">
-      <div style="width: 80%; height: auto; background: white; margin: 0 auto; margin-top: 2.5%; margin-bottom: 25px;">
+      <div class="sc">
         
-        <div class="modal-header">
+        <div class="modal-header" style="text-align: center;">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h1 class="modal-title" id="exampleModalLabel">Modal title</h1>
         </div>
@@ -148,8 +160,8 @@
       </div>
     </div>
 
-    <div class="modal fade x1" id="exampleModal1">
-      <div style="width: 100%; height: 100%; background: red; padding-left: 16px !important;">
+    <div class="modal fade mdT" id="exampleModal1" tabindex="-1" aria-hidden="true">
+      <div style="width: 100%; height: auto;">
         <div class="colorEspecial">
           
           <div class="modal-header">
@@ -158,40 +170,77 @@
           </div>
 
           <div class="modal-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
+            <table class="table table-striped" id="tdDatos">
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <th scope="row">Nombre</th>
+                  <td>Datos</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
+                  <th scope="row">Correo</th>
+                  <td>Datos</td>
                 </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
+                  <th scope="row">Institucion</th>
+                  <td>Datos</td>
+                </tr>
+                <tr>
+                  <th scope="row">Edificio</th>
+                  <td>Datos</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cubiculo</th>
+                  <td>Datos</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grupo de investigacion</th>
+                  <td>Datos</td>
+                </tr>
+                <tr>
+                  <th scope="row">Linea de investigacion</th>
+                  <td>Datos</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" form="formRegistroTesis">Save changes</button>
+            <button type="submit" class="btn btn-primary" form="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel" aria-hidden="true">
+      <div class="modal-dialog profileModal" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h6 class="modal-title" id="profileLabel">Perfil</h6>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <td><h5><a href="javascript:;">Nombre:</a></h5></td>
+                        <td><?php echo ucwords(strtolower($atributos['uNombre'][0])); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h5><a href="javascript:;">Cuenta:</a></h5></td>
+                        <td><?php echo ucwords(strtolower($atributos['uCuenta'][0])); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h5><a href="javascript:;">Correo:</a></h5></td>
+                        <td><?php echo ucwords(strtolower($atributos['uCorreo'][0])); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h5><a href="javascript:;">Tipo:</a></h5></td>
+                        <td><?php echo ucwords(strtolower($atributos['uTipo'][0])); ?></td>
+                    </tr>
+                </tbody>
+            </table>
           </div>
         </div>
       </div>
