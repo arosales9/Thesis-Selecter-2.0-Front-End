@@ -1,11 +1,28 @@
 //****************** CALLBACK ******************//
+$(document).ready(function(){
+  $("#md-cargando").modal("show");
+
+  setTimeout(function() { 
+    $('#md-cargando').fadeOut(1000);
+      setTimeout(function() { 
+      $('#md-cargando').modal("hide").fadeOut(500);
+    }, 400);
+    getThesisSrv();
+  }, 3000);
+});
+
+
 var getThesisSrv = () => {
   HomeSrv().getAllThesis()
     .success((result) => {
+      console.log(result);
       if (result.status!=200) {
         alert(result.status, result.msg)
       } else {
         const thesisHtml = getThesisHtml(result.data.result);
+        const filtersHtml = getFiltersGroupHtml(result.data.filters.group);
+        $('#filtersGroup').html(filtersHtml);
+        console.log(filtersHtml);
         $('#thesis').html(thesisHtml);
         notification(result.data.request)
       }
@@ -15,17 +32,6 @@ var getThesisSrv = () => {
         Swal.fire({ type: 'error', title: 'Error 404', text: 'Error de conexón'});
       });
 }
-
-
-
-$(document).ready(function(){
-  setTimeout(function() { 
-    $('#contenedor').fadeOut(500);
-  }, 3000);
-});
-
-
-
 
 //****************** CONTROLADOR ******************//
 function notification(request) {
@@ -37,66 +43,93 @@ function notification(request) {
 
   }
 }
+
+function getFiltersGroupHtml(group){
+  console.log(group);
+  const groupCodeHtml = group.map((singleGroup) => {
+    const { ResearchGroupID, ResearchGroupKey, ResearchGroupName} = singleGroup;              
+      return (`<li class="list-group-item">
+        <div class="checkbox form-group">
+          <label>
+            <div class="checker">
+              <span>
+                <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="${ResearchGroupID}">
+              </span>
+            </div>
+            ${ResearchGroupKey+" - "+ResearchGroupName}
+          </label>
+        </div>
+      </li>`);
+    }
+  );
+  console.log(groupCodeHtml);
+  return groupCodeHtml.join('');
+}
+
+/*Se octiene todas las tesis*/
 function getThesisHtml(allThesis) {
   var html;
 	const thesisHtml = allThesis.map((thesis) => {
 		const { ThesisID, ThesisName, StatusName, Image, StatusID } = thesis;
     if (StatusID=='1')
     {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12">
-          <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+      html = `                
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3 class="head">Tesis</h3>
+                      <span>${StatusName}</span>
+                    </div>
 
-              <div class="pricing-head">
-                       <h3 class="bg-success head">Tesis
-                  <span class="enunciado">
-                      ${StatusName}
-                  </span>
-                  </h3>
-                  <span>
-                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-                  </figure>
-                  </span>
-              </div>
-              <div class="pricing-footer footer-stylesheet">
-                  <p class="thesis-name parrafo">
-                      ${ThesisName}
-                  </p>
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
+                        </a>
+                      </figure>
+                    </div>
 
-                    <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
-
-                        Ver más <i class="m-icon-swapright m-icon-white"></i>
-                    </a>
-              </div>
-          </div>
-          </article>`;
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        ${ThesisName}
+                      </p>
+         
+                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>`;
     } else {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12">
-          <div class="pricing hover-effect" style="border: 1px solid gray; position: relative; margin-bottom: 15px;">
+      html = `                
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Cerrado">
+                      <h3 class="head">Tesis</h3>
+                      <span>${StatusName}</span>
+                    </div>
 
-              <div class="pricing-head">
-                       <h3 class="head">Tesis
-                  <span class="enunciado">
-                      ${StatusName}
-                  </span>
-                  </h3>
-                  <span>
-                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-                  </figure>
-                  </span>
-              </div>
-              <div class="pricing-footer footer-stylesheet">
-                  <p class="thesis-name parrafo">
-                      ${ThesisName}
-                  </p>
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
+                        </a>
+                      </figure>
+                    </div>
 
-                    <a href="inside.php?thesis_id=${ThesisID}" class="btn" style="outline: 0; text-decoration: none; background-color: #D6DCD7">
-                        Ver más <i class="m-icon-swapright m-icon-white"></i>
-                    </a>
-              </div>
-          </div>
-          </article>`;
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        ${ThesisName}
+                      </p>
+         
+                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>`;
 
     }
 		return html;
@@ -105,7 +138,7 @@ function getThesisHtml(allThesis) {
 }
 
 $(document).ready(function() {
- getThesisSrv();
+ //getThesisSrv();
 });
 
 //****************** OTROS ******************//

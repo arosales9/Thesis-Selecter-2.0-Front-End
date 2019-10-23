@@ -6,6 +6,7 @@
    //echo $atributos['uTipo'][0];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,6 +34,7 @@
     <link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
     <link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cargando.css">
 
     <!-- include a theme -->
 
@@ -47,7 +49,7 @@
   </head>
 
   <body>
-    <div id="estructura">
+    <div id="estructura" style="margin-bottom: 80px;">
       <!-- Fixed navbar -->
       <nav class="navbar navbar-light bg-faded theme-primary pos-f-t" >
         <div class="container">
@@ -99,7 +101,7 @@
       ?>
 
       <div class="Container-full"><!--container-full-->
-        <header class="Title-main text-center"><!--ocupara el 100% en top-->
+        <header class="Title-main text-center" style="padding-left: 55px;"><!--ocupara el 100% en top-->
           <h1 style="padding-left: 15px;">Seleccion de tema de tesis</h1>
           <div class="subtitle-main">
             <p>
@@ -171,19 +173,8 @@
 
               <!--Content panel-->
               <div class="out collapse" id="panelTwo" aria-expanded="false">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="checkbox form-group">
-                      <label>
-                        <div class="checker">
-                          <span>
-                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
-                          </span>
-                        </div>
-                        Internet de las cosas
-                      </label>
-                    </div>
-                  </li>
+                <ul class="list-group" id="filtersGroup">
+
                 </ul>
               </div>
             </div>
@@ -291,9 +282,42 @@
           <!--contenedor de las tesis-->
           <main class="container-full-body" style="float: left;">
             <div class="container full-tesis">
-              <div class="row ml-1 mr-1 full-tesis">
+              <div class="row ml-1 mr-1 full-tesis" id="thesis">
 
-                <!--Aqui inician las tesis-->
+                <!--Aqui inician las tesis
+                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3 class="bg-success head">Tesis</h3>
+                      <span class="enunciado">${StatusName}</span>
+                    </div>
+
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
+                        </a>
+                      </figure>
+                    </div>
+
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        ${ThesisName}
+                      </p>
+         
+                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+
+
+
+
+
                 <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
                   <div class="conteiner-thesis">
                     <div class="Select-thesis-head">
@@ -348,35 +372,7 @@
                       </a>
                     </div>
                   </div>
-                </article>
-
-                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
-                  <div class="conteiner-thesis">
-                    <div class="Select-thesis-head">
-                      <h3>Tesis</h3>
-                      <span>Disponible</span>
-                    </div>
-
-                    <div class="Select-thesis-body">
-                      <figure class="se-th-fi">
-                        <a>
-                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
-                        </a>
-                      </figure>
-                    </div>
-
-                    <div class="Select-thesis-footer pt-2">
-                      <p class="thesis-name">
-                        Plataforma Thesis-Selecter de la Universidad de Colima
-                      </p>
-         
-                      <a class="btn btn-success btn-click">
-                        Ver más
-                        <i class="m-icon-swapright m-icon-white"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
+                </article>-->
                 <!--Aqui terminan las tesis-->
               </div>
             </div>
@@ -386,6 +382,7 @@
     </div>
 
     <?php
+      require_once('assets/modals/Advisors/perfilasesor.php');
       if ($atributos['uTipo'][0] == 'Estudiante')
       {
         include('assets/modals/Student/profile.php');
@@ -395,6 +392,15 @@
         //nose que hace
       }
     ?>
+
+    <div class="modal" id="md-cargando" aria-hidden="true" style="width: 100%; height: 100%; background: white;">
+      <div>
+        <div id="contenedor">
+          <div class="loader" id="loader"></div>
+          <div style="text-align: center; font: 150% sans-serif; padding-left: 10px; color: #669933;"><h3>Cargando recursos...</h3></div>
+        </div>
+      </div>
+    </div>
 
     <!-- JS Bootstrap -->
     <script src="//www.ucol.mx/cms/beta/dist/js/tether.min.js" type="text/javascript"></script>

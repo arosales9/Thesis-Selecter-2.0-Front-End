@@ -66,7 +66,7 @@
               <?php echo ucwords(strtolower($atributos['givenName'][0])); ?>
              </a>
              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Mi Perfil</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal1">Mi Perfils</a>
               <a class="dropdown-item" href="assets/federacion/logout.php">Cerrar Sesión</a>
             </div>
          </li>
@@ -74,3 +74,4 @@
       </ul>
   </div>
 </nav>
+

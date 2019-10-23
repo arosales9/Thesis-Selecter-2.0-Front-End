@@ -23,7 +23,7 @@
               </a><![endif]-->
           </li>
 
-          <li class="nav-item">
+          <!--<li class="nav-item">
               <a class="a1 nav-link" aria-expanded="false" href="login.php">
                   Asesores
               </a>
@@ -33,7 +33,7 @@
               <a class="a1 nav-link" aria-expanded="false" href="about.php">
                   Sobre Nosotros
               </a>
-          </li>
+          </li>-->
 
               <!--[if gte IE 7]><!--><!--<![endif]-->
           <li class="nav-item dropdown">

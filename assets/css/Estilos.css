@@ -64,7 +64,7 @@
  }
 
  .conteiner-thesis{
- 	 border:solid 2px #eeeeee;
+ 	 border:solid 2px gray;
  }
 
  .btn-click{
@@ -266,10 +266,10 @@
 	background: linear-gradient(to bottom, blue, white);*/
 	background: white;
 	border-radius: 10px;
-	width: 50%; 
+	width: 70%; 
 	height: auto; 
 	margin: 0 auto; 
-	margin-top: 2.5%; 
+	margin-top: 25%; 
 }
 
 
@@ -295,9 +295,6 @@
     scrollbar-width: thin;
 }
 
-#exampleModal::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
-    display: none;
-} 
 
 .sc{
 	width: 80%; 
@@ -306,4 +303,11 @@
 	margin: 0 auto; 
 	margin-top: 2.5%; 
 	margin-bottom: 25px;
+}
+
+
+.Cerrado{
+	width: 100%;
+ 	background:  gray;
+ 	text-align: center;
 }

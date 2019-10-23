@@ -1,7 +1,7 @@
 <?php
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
-   //$atributos['uTipo'][0] = 'Trabajador'; // puedo canviar el valor Estudiante
+   $atributos['uTipo'][0] = 'Trabajador'; // puedo canviar el valor Estudiante
    //echo '<script language="javascript">alert('.$atributos['uTipo'][0].');</script>'; 
    //echo $atributos['uTipo'][0];
 ?>
