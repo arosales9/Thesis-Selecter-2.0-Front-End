@@ -34,10 +34,14 @@
 	<!-- Bootstrap y header & footer agregados -->
 	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
 	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/css/gallery.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/gallery.css">
+
+	<link rel="stylesheet" href="assets/css/Estilos.css">
+
+
 
 
 
@@ -79,7 +83,8 @@
 			</div>
 		</div>
     </nav> <!-- /navbar -->
-        <section class="page-breadcrumb">
+
+    <section class="page-breadcrumb">
      <div class="container ">
      	<div id="path">
 	        	<ol class="breadcrumb">
@@ -92,17 +97,21 @@
         </div>
      </div> <!--cierra path-->
     </section>
+
 	<section class="page-header">
         <div class="container">
 	        <h1 class="title-ucol">Thesis-Selecter</h1>
 	    </div><!--/ Cierra .container /-->
     </section>
-    <?php if ($atributos['uTipo'][0] == 'Estudiante')
-    {
-      include('assets/views/student/navbar.php');
-    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
-      include('assets/views/researcher/navbar.php');
-    }
+
+    <?php 
+    	require_once('assets/modals/Advisors/createtesis.php');
+    	if ($atributos['uTipo'][0] == 'Estudiante')
+	    {
+	      include('assets/views/student/navbar.php');
+	    } elseif ($atributos['uTipo'][0] == 'Trabajador') {
+	      include('assets/views/researcher/navbar.php');
+	    }
     ?>
 
 
@@ -111,7 +120,7 @@
         <h1>Mis Tesis</h1>
       </div>
       <div class=" col-xl-1 col-lg-2 col-md-4 col-sm-6 col-xs-12" style="padding-bottom:30px;">
-        <button type="button" class="btn btn-success" name="button">Agregar Tesis</button>
+        <button type="button" class="btn btn-success" name="button" data-toggle="modal" data-target="#exampleModal">Agregar Tesis</button>
       </div>
       <!-- <br><br> -->
 		<div class="row p-contenido" style="">

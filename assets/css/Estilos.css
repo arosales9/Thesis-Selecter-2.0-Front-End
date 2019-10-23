@@ -7,7 +7,6 @@
  	margin-bottom: 45px;
  }
 
-
  .checker{
  	width: 20px;
  	height: 20px;
@@ -33,10 +32,6 @@
 
  .panel-title{
  	padding-left: 5px;
- }
-
- .form-group{
- 	margin-bottom: 0px;
  }
 
  .list-group-item{
@@ -69,7 +64,7 @@
  }
 
  .conteiner-thesis{
- 	 border:solid 2px #eeeeee;
+ 	 border:solid 2px gray;
  }
 
  .btn-click{
@@ -95,7 +90,7 @@
  /*Head new title*/
 
  .line{
- 	border-bottom: solid 1px #eeeeee;
+ 	border-bottom: 1px solid #cdcdcd;
  	height: 1px;
  	width: 100%;
  	margin-bottom: 25px;
@@ -103,7 +98,6 @@
 
  .Container-full{
  	width: 100%;
- 	height: 600px;
  }
 
  .subtitle-main{
@@ -115,13 +109,14 @@
  	padding-bottom: 5px;
  }
 
- /*Panel de control tesis*/
+ /*Panel de control tesis filtros */
 
  .filters-menu{
  	width: 25%;
  	height: auto;
  	background: transparent;
  	float: left;
+ 	padding-top: 30px;
  }
 
 .filters-menu-title{
@@ -156,6 +151,11 @@
  	margin-right: 5px;
  }
 
+ .panel{
+ 	padding-left: 10px;
+ 	padding-right: 10px;
+ }
+
  /*Ver mas*/
 
  .centrar-elements{
@@ -174,8 +174,14 @@
  }
 
  .full-tesis{
- 	margin-top: 25px;
+ 	margin-top: 15px;
  }
+
+ /*Login y filtros*/
+ .form-group{
+ 	/*margin-bottom: 0px;*/
+ }
+
 
 @media screen and (max-width: 768px){
 	 .Fil-ucol{
@@ -195,6 +201,7 @@
 
 	.container-full-body{
 		width: 100%;
+		margin: 0 auto;
 	}
 }
 
@@ -205,4 +212,102 @@
 		margin-right: 0px !important;
 		margin-left: 0px !important;
 	}
+}
+
+
+
+/* 060 y 062 */
+
+#formRegistroTesis > .row > .colum {
+	padding-top: 15px;
+}
+
+#formRegistroTesis > .row > .colum > .preguntas > input[type="text"] {
+	width: 35%;
+	color: red;
+	border: 0px;
+}
+
+#formRegistroTesis > .row > .colum > .preguntas > span {
+	width: 30%;
+	background: white;
+	float: left;
+}
+
+.preguntas{
+	width: 80%;
+	margin: 0 auto;
+	background: yellow;
+	height: auto;
+}
+
+.anc{
+	width: 55% !important;
+}
+
+#formRegistroTesis > .form-group > label{
+	color: black;
+	font-size: 35px;
+}
+
+#formRegistroTesis{
+	width: 80%; 
+	height: auto; 
+	background: white; 
+	margin: 0 auto;
+}
+
+.form-group{
+	margin-top: 20px !important;
+}
+
+.colorEspecial{
+	/*background: -webkit-linear-gradient(left top, #14235f ,white 80%, #14235f);
+	background: linear-gradient(to bottom, blue, white);*/
+	background: white;
+	border-radius: 10px;
+	width: 70%; 
+	height: auto; 
+	margin: 0 auto; 
+	margin-top: 25%; 
+}
+
+
+.x1{
+	padding-left: 0px !important;
+	top:0px !important;
+	padding-top: 0px;
+}
+
+.mdT{
+	width: 100%; 
+	height: 100%; 
+	background: rgba(128, 128, 128, 0.5);
+}
+
+#tdDatos > tbody > tr > th{
+	width: 20%;
+}
+
+#exampleModal{
+	overflow-y: scroll;
+    scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+}
+
+
+.sc{
+	width: 80%; 
+	height: auto; 
+	background: white; 
+	margin: 0 auto; 
+	margin-top: 2.5%; 
+	margin-bottom: 25px;
+}
+
+
+.Cerrado{
+	width: 100%;
+ 	background:  gray;
+ 	text-align: center;
 }
