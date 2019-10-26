@@ -52,8 +52,9 @@ var getStudentOptionsSrv = () => {
            window.location.assign('home.php');
         });
       });
- };
- var addStudentRequestSrv = (data) => {
+};
+
+var addStudentRequestSrv = (data) => {
    console.log(data);
    InsideSrv().addStudentRequest(data)
          .success((response) => {
@@ -69,7 +70,7 @@ var getStudentOptionsSrv = () => {
             window.location.assign('home.php');
          });
        });
-  };
+};
 
 
 

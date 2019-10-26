@@ -15,15 +15,22 @@ $(document).ready(function(){
 var getThesisSrv = () => {
   HomeSrv().getAllThesis()
     .success((result) => {
-      console.log(result);
       if (result.status!=200) {
         alert(result.status, result.msg)
       } else {
         const thesisHtml = getThesisHtml(result.data.result);
-        const filtersHtml = getFiltersGroupHtml(result.data.filters.group);
-        $('#filtersGroup').html(filtersHtml);
-        console.log(filtersHtml);
+        
+        const filtersGroupHtml = getFiltersGroupHtml(result.data.filters.group);//Grupo de investigacion
+        const filtersLineHtml = getFiltersLineHtml(result.data.filters.line);//Linea de investigacion
+        const filtersStudentHtml = getFiltersStudentHtml(result.data.filters.studentProfile);
+        const filtersResearcherHtml = getFiltersResearcherHtml(result.data.filters.researcher);
+        
         $('#thesis').html(thesisHtml);
+
+        $('#filtersGroup').html(filtersGroupHtml); //Grupo de investigacion
+        $('#filtersLine').html(filtersLineHtml);
+        $('#filtersStudent').html(filtersStudentHtml);
+        $('#Researcher').html(filtersResearcherHtml);
         notification(result.data.request)
       }
      })
@@ -44,8 +51,8 @@ function notification(request) {
   }
 }
 
+/*Grupo de investigacion*/
 function getFiltersGroupHtml(group){
-  console.log(group);
   const groupCodeHtml = group.map((singleGroup) => {
     const { ResearchGroupID, ResearchGroupKey, ResearchGroupName} = singleGroup;              
       return (`<li class="list-group-item">
@@ -62,8 +69,73 @@ function getFiltersGroupHtml(group){
       </li>`);
     }
   );
-  console.log(groupCodeHtml);
   return groupCodeHtml.join('');
+}
+
+/*Linea de investigacion*/
+function getFiltersLineHtml(line){
+  const lineCodeHtml = line.map((singleLine) => {
+    const { ResearchLineID, ResearchLineName} = singleLine;              
+      return (`<li class="list-group-item">
+        <div class="checkbox form-group">
+          <label>
+            <div class="checker">
+              <span>
+                <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="${ResearchLineID}">
+              </span>
+            </div>
+            ${ResearchLineName}
+          </label>
+        </div>
+      </li>`);
+    }
+  );
+  return lineCodeHtml.join('');
+}
+
+/*Perfil del estudiante*/
+function getFiltersStudentHtml(student){
+  const studentCodeHtml = student.map((singleStudent) => {
+    const { EducativeProgramID, EducativeProgramName} = singleStudent;              
+      return (`<li class="list-group-item">
+        <div class="checkbox form-group">
+          <label>
+            <div class="checker">
+              <span>
+                <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="${EducativeProgramID}">
+              </span>
+            </div>
+            ${EducativeProgramName}
+          </label>
+        </div>
+      </li>`);
+    }
+  );
+  return studentCodeHtml.join('');
+}
+
+/*Asesor*/
+function getFiltersResearcherHtml(researcher){
+  const researcherCodeHtml = researcher.map((singleResearcher) => {
+    const { ResearcherID, ResearcherName} = singleResearcher;              
+      return (`
+      
+      <li class="list-group-item">
+        <div class="checkbox form-group">
+          <label>
+            <div class="checker">
+              <span>
+                <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="${ResearcherID}">
+              </span>
+            </div>
+            ${ResearcherName}
+          </label>
+        </div>
+      </li>`
+      );
+    }
+  );
+  return researcherCodeHtml.join('');
 }
 
 /*Se octiene todas las tesis*/

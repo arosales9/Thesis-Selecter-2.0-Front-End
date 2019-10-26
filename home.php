@@ -46,6 +46,11 @@
     <script src="assets/Jquery/jquery-3.4.1.js"></script>-->
     <link rel="stylesheet" href="assets/css/Estilos.css">
     <!--<script defer src="assets/fontawesome-free-5.10.1/js/all.js"></script>-->
+    <script>
+       //<![CDATA[
+      document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+       //]]>
+    </script>
   </head>
 
   <body>
@@ -115,6 +120,7 @@
 
         <div class="container full-tesis">
 
+
           <aside class="filters-menu">
             <!--Encabezado de los filtros-->
             <div class="filters-menu-title">
@@ -157,6 +163,7 @@
               </div>
             </div>
 
+
             <!--Grupo de investigacion-->
             <div class="panel text-left">
               <!--Click Panel-->
@@ -195,19 +202,8 @@
 
               <!--Content panel-->
               <div class="out collapse" id="panelThree" aria-expanded="false">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="checkbox form-group">
-                      <label>
-                        <div class="checker">
-                          <span>
-                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
-                          </span>
-                        </div>
-                        Internet de las cosas
-                      </label>
-                    </div>
-                  </li>
+                <ul class="list-group" id="filtersLine">
+
                 </ul>
               </div>
             </div>
@@ -228,19 +224,8 @@
 
               <!--Content panel-->
               <div class="out collapse" id="panelFour" aria-expanded="false">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="checkbox form-group">
-                      <label>
-                        <div class="checker">
-                          <span>
-                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
-                          </span>
-                        </div>
-                        Internet de las cosas
-                      </label>
-                    </div>
-                  </li>
+                <ul class="list-group" id="filtersStudent">
+
                 </ul>
               </div>
             </div>
@@ -261,22 +246,12 @@
 
               <!--Content panel-->
               <div class="out collapse" id="panelFive" aria-expanded="false">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="checkbox form-group">
-                      <label>
-                        <div class="checker">
-                          <span>
-                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
-                          </span>
-                        </div>
-                        Internet de las cosas
-                      </label>
-                    </div>
-                  </li>
+                <ul class="list-group" id="Researcher">
+
                 </ul>
               </div>
             </div>
+
           </aside>
 
           <!--contenedor de las tesis-->
