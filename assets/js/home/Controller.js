@@ -16,7 +16,7 @@ var getThesisSrv = () => {
   HomeSrv().getAllThesis()
     .success((result) => {
       if (result.status!=200) {
-        alert(result.status, result.msg)
+        alert(result.status, result.msg);
       } else {
         const thesisHtml = getThesisHtml(result.data.result);
         
@@ -31,7 +31,7 @@ var getThesisSrv = () => {
         $('#filtersLine').html(filtersLineHtml);
         $('#filtersStudent').html(filtersStudentHtml);
         $('#Researcher').html(filtersResearcherHtml);
-        notification(result.data.request)
+        notification(result.data.request);
       }
      })
     .fail(()=>
@@ -146,7 +146,7 @@ function getThesisHtml(allThesis) {
     if (StatusID=='1')
     {
       html = `                
-                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
+                <article class="col-lg-4 col-md-6 col-sm-12 full-tesis">
                   <div class="conteiner-thesis">
                     <div class="Select-thesis-head">
                       <h3 class="head">Tesis</h3>
@@ -214,6 +214,27 @@ $(document).ready(function() {
 });
 
 //****************** OTROS ******************//
+
+// $(".panel > div > h5").mouseover(function(){
+//   $(".panel > div > h5").css("color", "#669933");
+//   }, function(){
+//   $(".indicator > i").css("color", "#669933");
+// });
+
+// $(".panel > div > h5").on({
+//     mouseenter: function () {
+//         //stuff to do on mouse enter
+//         $(".panel > div > h5").css("color", "#669933!important");
+//         $(".indicator > i").css("color", "#669933");
+//     },
+//     mouseleave: function () {
+//         //stuff to do on mouse leave
+//         $(".panel > div > h5 > a > i").css("color", "#14235f");
+//         $(".panel > div > h5").css("color", "#14235f");
+        
+//     }
+// });
+
 
 function alert(status, msg)
 {

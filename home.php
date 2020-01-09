@@ -35,17 +35,12 @@
     <link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/cargando.css">
-
+    <link rel="stylesheet" href="assets/css/Filtros.css">
+    <link rel="stylesheet" href="assets/css/Estilos.css">
     <!-- include a theme -->
 
 
-    <!-- Otros Estilos 
-    <link rel="stylesheet" href="assets/css/Bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/fontawesome-free-5.10.1/css/all.css">
-    <script defer src="fontawesome-free-5.10.1/js/all.js"></script>
-    <script src="assets/Jquery/jquery-3.4.1.js"></script>-->
-    <link rel="stylesheet" href="assets/css/Estilos.css">
-    <!--<script defer src="assets/fontawesome-free-5.10.1/js/all.js"></script>-->
+    <!-- Otros Estilos -->
     <script>
        //<![CDATA[
       document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
@@ -105,9 +100,9 @@
         }
       ?>
 
-      <div class="Container-full"><!--container-full-->
-        <header class="Title-main text-center" style="padding-left: 55px;"><!--ocupara el 100% en top-->
-          <h1 style="padding-left: 15px;">Seleccion de tema de tesis</h1>
+      <div><!--container-full-->
+        <header class="Title-main text-center"><!--ocupara el 100% en top-->
+          <h1 class="h1-title">Seleccion de tema de tesis</h1>
           <div class="subtitle-main">
             <p>
               Descubre tu tesis ideal a través de esta página web, la cual te permite seleccionar dinámicamente el tema de tesis de grado de acuerdo a tus intereses académicos (tema central, grupo de investigación, línea de investigación, perfil del estudiante, asesor, etc).
@@ -124,45 +119,11 @@
           <aside class="filters-menu">
             <!--Encabezado de los filtros-->
             <div class="filters-menu-title">
-              <h3>
+              <h3 class="text-white" style="color: white !important;">
                 Filtros
               </h3>
               <span>Filtros de busqueda de tesis</span>
             </div>
-
-            <!--Temas Centrales-->
-            <div class="panel text-left">
-              <!--Click Panel-->
-              <div>
-                <h5 class="collapsed" aria-expanded="false" data-target="#panelOne" data-toggle="collapse">
-                  Temas Centrales
-                  <a class="collapsed indicator" aria-expanded="false" href="#panelOne" data-toggle="collapse">
-                    <!--<i class="fas fa-caret-down" aria-hidden="true">
-                    </i>-->
-                    <i aria-hidden="true">▼</i>
-                  </a>
-                </h5>
-              </div>
-
-              <!--Content panel-->
-              <div class="out collapse" id="panelOne" aria-expanded="false">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="checkbox form-group">
-                      <label>
-                        <div class="checker">
-                          <span>
-                            <input name="TopicID[]" class="sort_rang TopicID" type="checkbox" value="1">
-                          </span>
-                        </div>
-                        Internet de las cosas
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
 
             <!--Grupo de investigacion-->
             <div class="panel text-left">
@@ -173,7 +134,7 @@
                   <a class="collapsed indicator" aria-expanded="false" href="#panelTwo" data-toggle="collapse">
                     <!--<i class="fas fa-caret-down" aria-hidden="true">
                     </i>-->
-                    <i aria-hidden="true">▼</i>
+                    <i id="x1" aria-hidden="true">▼</i>
                   </a>
                 </h5>
               </div>
@@ -195,7 +156,7 @@
                   <a class="collapsed indicator" aria-expanded="false" href="#panelThree" data-toggle="collapse">
                     <!--<i class="fas fa-caret-down" aria-hidden="true">
                     </i>-->
-                    <i aria-hidden="true">▼</i>
+                    <i id="x2" aria-hidden="true">▼</i>
                   </a>
                 </h5>
               </div>
@@ -217,7 +178,7 @@
                   <a class="collapsed indicator" aria-expanded="false" href="#panelFour" data-toggle="collapse">
                     <!--<i class="fas fa-caret-down" aria-hidden="true">
                     </i>-->
-                    <i aria-hidden="true">▼</i>
+                    <i id="x3" aria-hidden="true">▼</i>
                   </a>
                 </h5>
               </div>
@@ -239,7 +200,7 @@
                   <a class="collapsed indicator" aria-expanded="false" href="#panelFive" data-toggle="collapse">
                     <!--<i class="fas fa-caret-down" aria-hidden="true">
                     </i>-->
-                    <i aria-hidden="true">▼</i>
+                    <i id="x4" aria-hidden="true">▼</i>
                   </a>
                 </h5>
               </div>
@@ -255,100 +216,9 @@
           </aside>
 
           <!--contenedor de las tesis-->
-          <main class="container-full-body" style="float: left;">
+          <main class="container-full-body">
             <div class="container full-tesis">
-              <div class="row ml-1 mr-1 full-tesis" id="thesis">
-
-                <!--Aqui inician las tesis
-                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
-                  <div class="conteiner-thesis">
-                    <div class="Select-thesis-head">
-                      <h3 class="bg-success head">Tesis</h3>
-                      <span class="enunciado">${StatusName}</span>
-                    </div>
-
-                    <div class="Select-thesis-body">
-                      <figure class="se-th-fi">
-                        <a>
-                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
-                        </a>
-                      </figure>
-                    </div>
-
-                    <div class="Select-thesis-footer pt-2">
-                      <p class="thesis-name">
-                        ${ThesisName}
-                      </p>
-         
-                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
-                        Ver más
-                        <i class="m-icon-swapright m-icon-white"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-
-
-
-
-
-
-                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
-                  <div class="conteiner-thesis">
-                    <div class="Select-thesis-head">
-                      <h3>Tesis</h3>
-                      <span>Disponible</span>
-                    </div>
-
-                    <div class="Select-thesis-body">
-                      <figure class="se-th-fi">
-                        <a>
-                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
-                        </a>
-                      </figure>
-                    </div>
-
-                    <div class="Select-thesis-footer pt-2">
-                      <p class="thesis-name">
-                        Plataforma Thesis-Selecter de la Universidad de Colima
-                      </p>
-         
-                      <a class="btn btn-success btn-click">
-                        Ver más
-                        <i class="m-icon-swapright m-icon-white"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="mt-5 col-lg-4 col-md-6 col-sm-12 full-tesis">
-                  <div class="conteiner-thesis">
-                    <div class="Select-thesis-head">
-                      <h3>Tesis</h3>
-                      <span>Disponible</span>
-                    </div>
-
-                    <div class="Select-thesis-body">
-                      <figure class="se-th-fi">
-                        <a>
-                          <img src="http://telematicanet.ucol.mx/Thesis-Selecter/content/tesis/9608_3747_logoplataformajpg.jpg" class="img-fluid img-thesis" alt="Responsive image">
-                        </a>
-                      </figure>
-                    </div>
-
-                    <div class="Select-thesis-footer pt-2">
-                      <p class="thesis-name">
-                        Plataforma Thesis-Selecter de la Universidad de Colima
-                      </p>
-         
-                      <a class="btn btn-success btn-click">
-                        Ver más
-                        <i class="m-icon-swapright m-icon-white"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>-->
-                <!--Aqui terminan las tesis-->
+              <div class="row full-tesis" id="thesis">
               </div>
             </div>
           </main>

@@ -1,0 +1,86 @@
+/*Panel de control tesis filtros */
+
+.filters-menu{
+ 	width: 25%;
+ 	height: auto;
+ 	background: transparent;
+ 	float: left;
+ 	margin-top: 30px;
+}
+
+.filters-menu-title{
+	background: #669933;
+	padding-bottom: 15px;
+	text-align: center;
+	padding-top: 15px;
+}
+
+
+.panel > div > h5{
+ 	padding-left: 15px;
+ 	padding-right: 15px;
+}
+
+.panel > div > h5:hover .indicator > i{
+	color:#669933 !important;
+}
+
+.panel > div > h5:hover{
+	color:#669933 !important;
+}
+
+.indicator{
+ 	float: right;
+ 	margin-right: 5px;
+}
+
+.panel{
+ 	border-bottom:solid 1px;
+ 	border-left: solid 1px;
+ 	border-right: solid 1px;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+ 	border-color: #cdcdcd;
+}
+
+.panel-title{
+ 	padding-left: 5px;
+}
+
+/*Opciones*/
+
+.list-group-item{
+	padding: 0.02rem 1rem !important;
+	background: none;
+}
+
+.form-group{
+	margin-top: 5px !important;
+}
+
+.checker{
+	width: 0px !important;
+	height: 20px;
+ 	float: left;
+}
+
+.list-group-item:hover{
+	background: green ;
+	opacity: .5;
+	color: white;
+}
+
+.list-group-item{
+	border:none;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0;
+}
+
+.filters-menu:hover{
+	border: 1px solid #669933;
+}

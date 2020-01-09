@@ -6,42 +6,14 @@
           <li class="nav-item">
               <a class="a1 nav-link" aria-expanded="false" href="home.php">
                   Inicio
-
-              </a>
-              <!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]>
-              <table>
-                  <tr>
-                      <td>
-                          <![endif]-->
-
-
-
-                          <!--[if lte IE 6]>
-                      </td>
-                  </tr>
-              </table>
-              </a><![endif]-->
-          </li>
-
-          <!--<li class="nav-item">
-              <a class="a1 nav-link" aria-expanded="false" href="login.php">
-                  Asesores
               </a>
           </li>
-
-          <li class="nav-item">
-              <a class="a1 nav-link" aria-expanded="false" href="about.php">
-                  Sobre Nosotros
-              </a>
-          </li>-->
-
-              <!--[if gte IE 7]><!--><!--<![endif]-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?php echo ucwords(strtolower($atributos['givenName'][0])); ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profile">Mi Perfil</a>
+              <a class="dropdown-item" href="" data-toggle="modal" data-target="#profile">Mi Perfil</a>
               <a class="dropdown-item" href="assets/federacion/logout.php">Cerrar Sesión</a>
             </div>
           </li>

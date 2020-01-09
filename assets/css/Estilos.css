@@ -1,19 +1,119 @@
+/*-------Cabezera titulo-------*/
+.line-effect{
+	margin-right: 0px !important;
+}
 
- .line-effect{
- 	margin-right: 0px !important;
- }
-
- .title-main{
+.title-main{
  	margin-bottom: 45px;
- }
+}
 
- .checker{
- 	width: 20px;
- 	height: 20px;
+.Title-main{
+ 	padding-bottom: 5px;
+ 	padding-left: 50px;
+}
+
+.h1-title{
+	padding-left: 15px;
+}
+
+.subtitle-main{
+ 	padding-left: 15px;
+ 	padding-right: 15px;
+}
+
+.line{
+ 	border-bottom: 1px solid #cdcdcd;
+ 	height: 1px;
+ 	width: 100%;
+ 	margin-bottom: 25px;
+}
+
+/*-------Fin Cabezera-------*/
+
+
+/*Contenedor medio*/
+.Container-full{
+ 	width: 100%;
+}
+
+/*Contenedor de las tesis*/
+.container-full-body{
+ 	width: 75%;
  	float: left;
+ 	background: transparent;
+}
+
+.full-tesis{
+	margin-top: 15px;
+}
+/*Contenedor de las tesis fin*/
+/*Contenedor medio fin*/
+
+/*Tesis no disponibles*/
+
+.Cerrado{
+	width: 100%;
+ 	background:  #1d3389;
+ 	text-align: center;
+ 	color: white;
+}
+
+.btn-click-cerrado{
+ 	background: #1d3389;
+ 	color: white;
+ }
+
+ .btn-click-cerrado:hover{
+ 	background: #14235f;
+ 	color: white;
+ }
+
+  .conteiner-thesis-cerrado{
+ 	 border:solid 2px transparent !important;
+ }
+
+   .conteiner-thesis-cerrado{
+ 	 border:solid 2px transparent !important;
  }
 
 
+.conteiner-thesis-cerrado:hover{
+	border:solid 2px #14235f !important;
+}
+
+/*Tesis no disponibles fin*/
+
+/*Tesis disponible*/
+.conteiner-thesis{
+	border:solid 2px transparent;
+}
+
+.Select-thesis-head{
+	width: 100%;
+ 	background:  #669933;
+ 	text-align: center;
+}
+
+.btn-click{
+ 	background: #669933;
+ 	border-color: #669933;
+}
+
+article > div:hover{
+ 	border: 2px solid #669933;
+}
+
+.centrar-elements > button{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+/*Tesis disponible fin*/
+
+
+
+
+
+/*Sin funcion alguna*/
  .color-ucol{
  	background: #669933 !important;
  }
@@ -30,102 +130,13 @@
  	margin-left: 15px;
  }
 
- .panel-title{
- 	padding-left: 5px;
- }
-
- .list-group-item{
- 	border: none !important;
- }
-
-
- .container-body{
- 	width: 98%;
- 	height: 500px;
- }
-
- .modal-d{
- 	max-width: 80%;
- 	margin: 1.33rem auto;
- }
+ /*Sin funcion alguna fin*/
 
 
 
- /*Head new title*/
-
- .line{
- 	border-bottom: 1px solid #cdcdcd;
- 	height: 1px;
- 	width: 100%;
- 	margin-bottom: 25px;
- }
-
- .Container-full{
- 	width: 100%;
- }
-
- .subtitle-main{
- 	padding-left: 15px;
- 	padding-right: 15px;
- }
-
- .Title-main{
- 	padding-bottom: 5px;
- }
-
- /*Panel de control tesis filtros */
-
- .filters-menu{
- 	width: 25%;
- 	height: auto;
- 	background: transparent;
- 	float: left;
- 	padding-top: 30px;
- }
-
-.filters-menu-title{
-	background: #669933;
-	padding-bottom: 15px;
-	text-align: center;
-	padding-top: 15px;
-}
-
- .panel{
- 	border-bottom:solid 1px;
- 	border-left: solid 1px;
- 	border-right: solid 1px;
- 	padding-top: 10px;
- 	padding-bottom: 10px;
- 	border-color: #cdcdcd;
- }
-
- .list-group-item{
- 	background: none;
- }
-
- .container-full-body{
- 	width: 75%;
- 	float: left;
- 	background: transparent;
- }
-
-  .indicator{
- 	color: #669933;
- 	float: right;
- 	margin-right: 5px;
- }
-
- .panel{
- 	padding-left: 10px;
- 	padding-right: 10px;
- }
 
  
 
- /*Login y filtros*/
- .form-group{
- 	/*margin-bottom: 0px;*/
- }
 
 
 
@@ -173,19 +184,13 @@
 	margin: 0 auto;
 }
 
-.form-group{
-	margin-top: 20px !important;
-}
-
 .colorEspecial{
-	/*background: -webkit-linear-gradient(left top, #14235f ,white 80%, #14235f);
-	background: linear-gradient(to bottom, blue, white);*/
 	background: white;
 	border-radius: 10px;
 	width: 70%; 
 	height: auto; 
 	margin: 0 auto; 
-	margin-top: 25%; 
+	margin-top: 40px; 
 }
 
 
@@ -222,71 +227,9 @@
 }
 
 
-/*Tesis no disponibles*/
-
-.Cerrado{
-	width: 100%;
- 	background:  #1d3389;
- 	text-align: center;
- 	color: white;
-}
-
-.btn-click-cerrado{
- 	background: #1d3389;
- 	color: white;
- }
-
- .btn-click-cerrado:hover{
- 	background: #14235f;
- 	color: white;
- }
-
-  .conteiner-thesis-cerrado{
- 	 border:solid 2px transparent !important;
- }
-
-   .conteiner-thesis-cerrado{
- 	 border:solid 2px transparent !important;
- }
-
-
-.conteiner-thesis-cerrado:hover{
-	border:solid 2px #14235f !important;
-}
-
-
-
-/*Tesis disponible*/
-.conteiner-thesis{
-	border:solid 2px transparent;
-}
-
-.Select-thesis-head{
-	width: 100%;
- 	background:  #669933;
- 	text-align: center;
-}
-
-.btn-click{
- 	background: #669933;
- 	border-color: #669933;
-}
-
-article > div:hover{
- 	border: 2px solid #669933;
-}
-
-.centrar-elements > button{
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-
 
 
 /*Tesis general estilos*/
-.full-tesis{
-	margin-top: 15px;
-}
 
 .img-thesis{
  	width: 100%;
@@ -324,6 +267,7 @@ article > div:hover{
 	padding-bottom: 5px;
 }
 
+
 /*Ver Mas*/
 .con-img{
 	justify-content: center; 
@@ -351,14 +295,15 @@ article > div:hover{
  	padding-top: 15px;
 }
 
-
-
 .container-ver-mas{
 	width: 100%;
 	height: auto;
 }
 
-
+.sub-container{
+	width: 80%;
+	margin: 0 auto;
+}
 
 .sub-container > table{
 	width: 100%;
@@ -371,6 +316,72 @@ article > div:hover{
 .ttle{
 	text-align: center;
 }
+
+.btn-default{
+	background: gray;
+	color: white;
+}
+
+.btn-default:hover{
+	background: gray;
+	opacity: 0.5;
+}
+
+/*Ver Mas Fin*/
+
+.enunciado
+{
+  display: block;
+  display: block;
+  margin-top: 5px;
+  font-size: 8px;
+  font-style: italic;
+  border-radius: 0 !important;
+
+}
+
+.footer-stylesheet
+{
+  color: #777;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0 20px 19px;
+}
+
+.parrafo
+{
+  display: block;
+  font-size: 12px;
+  height: 90px;
+  overflow: hidden;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+
+/*Otros*/
+.pt{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mt{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.texto-centrado{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*Otros fin*/
 
 /*Medias queris*/
 @media screen and (max-width: 768px){
@@ -440,12 +451,7 @@ article > div:hover{
 	}
 }
 
-.btn-default{
-	background: gray;
-	color: white;
-}
 
-.btn-default:hover{
-	background: gray;
-	opacity: 0.5;
-}
+/*My tesis*/
+
+/*My tesis fin*/

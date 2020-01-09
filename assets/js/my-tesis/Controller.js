@@ -61,65 +61,67 @@ function getThesisHtml(allThesis) {
       Value = "";
 
     }
+    
     if (StatusID=='1')
     {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
-          <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
+      html = `                
+                <article class="col-lg-3 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Select-thesis-head">
+                      <h3 class="head">Tesis</h3>
+                      <span>${StatusName}</span>
+                    </div>
 
-              <div class="pricing-head">
-                       <h3 class="bg-success head">Tesis
-                  <span class="enunciado">
-                      ${StatusName}
-                  </span>
-                  </h3>
-                  <span>
-                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-                  </figure>
-                  </span>
-              </div>
-              <div class="pricing-footer footer-stylesheet">
-                  <p class="thesis-name parrafo">
-                      ${ThesisName}<br><br>
-                      <a href="inside.php?thesis_id=${ThesisID}" class="btn btn-success" style="outline: 0; text-decoration: none;">
-
-                          Ver más <i class="m-icon-swapright m-icon-white"></i>
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
+                        </a>
+                      </figure>
+                    </div>
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        ${ThesisName}
+                      </p>
+                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
                       </a>
-                  </p>
-                  <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
-                  <label class="form-check-label" for="post">Publicar</label>
-              </div>
-          </div>
-          </article>`;
+                      <br><br>
+                      <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
+                      <label class="form-check-label" for="post">Publicar</label>
+                    </div>
+                  </div>
+                </article>`;
     } else {
-      html = `<article class="col-md-3 col-sm-6 col-xs-12" style="">
-          <div class="pricing hover-effect" style="border: 1px solid gray;    position: relative; margin-bottom: 15px;">
-
-              <div class="pricing-head">
-                       <h3 class="head">Tesis
-                  <span class="enunciado">
-                      ${StatusName}
-                  </span>
-                  </h3>
-                  <span>
-                  <figure style="height: 245px; width:100%; padding-top: 10px; justify-content: center; align-items: center; display: flex;">
-                      <a><img style="height: auto; max-height: 245px; width: auto; display: flex;" class="img-responsive center-block" src="${Image}" alt="Nombre" style="margin-top: 20px;"/></a>
-                  </figure>
-                  </span>
-              </div>
-              <div class="pricing-footer footer-stylesheet">
-                  <p class="thesis-name parrafo">
-                      ${ThesisName}<br><br>
-                      <a href="inside.php?thesis_id=${ThesisID}" class="btn" style="outline: 0; text-decoration: none; background-color: #D6DCD7;">
-
-                          Ver más <i class="m-icon-swapright m-icon-white"></i>
+      html = `                
+                <article class="mt-5 col-lg-3 col-md-6 col-sm-12 full-tesis">
+                  <div class="conteiner-thesis">
+                    <div class="Cerrado">
+                      <h3 class="head">Tesis</h3>
+                      <span>${StatusName}</span>
+                    </div>
+                    <div class="Select-thesis-body">
+                      <figure class="se-th-fi">
+                        <a>
+                          <img src="${Image}" class="img-fluid img-thesis" alt="Nombre">
+                        </a>
+                      </figure>
+                    </div>
+                    <div class="Select-thesis-footer pt-2">
+                      <p class="thesis-name">
+                        ${ThesisName}
+                      </p>
+                      <a class="btn btn-success btn-click" href="inside.php?thesis_id=${ThesisID}">
+                        Ver más
+                        <i class="m-icon-swapright m-icon-white"></i>
                       </a>
-                  </p>
-                  <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
-                  <label class="form-check-label" for="post">Publicar</label>
-              </div>
-          </div>
-          </article>`;
+                      <br><br>
+                      <input type="checkbox" class="form-check-input" onchange="postCheck(${ThesisID})" id="post${ThesisID}" ${Value}>
+                      <label class="form-check-label" for="post">Publicar</label>
+                    </div>
+                  </div>
+                </article>`;
 
     }
 		return html;

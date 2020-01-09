@@ -3,7 +3,7 @@
         
     <div class="modal-header" style="text-align: center;">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h1 class="modal-title" id="exampleModalLabel">Modal title</h1>
+      <h1 class="modal-title" id="exampleModalLabel">Agregar tesis</h1>
     </div>
 
     <div class="modal-body">
@@ -11,7 +11,7 @@
 
         <div class="form-group">
           <label for="nomTesis" style="padding-left: 3px;"><h4>Nombre de tesis:</h4></label>
-          <input type="text" class="form-control" id="nomTesis">
+          <input type="text" class="form-control" id="nomTesis" placeholder="Nombre de su tesis">
         </div>
 
         <div class="form-group">
@@ -22,7 +22,7 @@
             <option>2</option>
             <option>3</option>
           </select>
-          <span>Si no encuentra tema, agregue uno nuevo <a href="">aqui</a></span>
+          <span>Si no encuentra tema, agregue uno nuevo <a data-toggle="modal" data-target="#newTopic">aqui</a></span>
         </div>
 
         <div class="form-group">
@@ -92,10 +92,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" form="formRegistroTesis">Save changes</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-        modal 2
-      </button>
+      <button type="button" class="btn btn-success" form="formRegistroTesis">Agregar Tesis</button>
     </div>
   </div>
 </div>

@@ -2,7 +2,6 @@
    require_once("assets/federacion/login.php");
    $atributos = $saml->getAttributes();
    $atributos['uTipo'][0] = 'Trabajador';
-
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +28,10 @@
     	<!-- Bootstrap y header & footer agregados -->
     	<link href="//www.ucol.mx/cms/headerfooterapp2.css" rel="stylesheet">
     	<link href="//www.ucol.mx/cms/beta/css/carrusel.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
+        <!-- <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/gallery.css">
         <link rel="stylesheet" href="assets/css/Estilos.css">
     </head>
@@ -51,7 +51,8 @@
         				</div>
         			</div>
         		</div>
-            </nav> <!-- /navbar -->
+            </nav> 
+            <!-- /navbar -->
 
             <section class="page-breadcrumb">
                 <div class="container ">
@@ -64,7 +65,8 @@
 
                     <div id="sesion">
                     </div>
-                </div> <!--cierra path-->
+                </div> 
+                <!--cierra path-->
             </section>
 
         	<section class="page-header">
@@ -83,7 +85,6 @@
                   include('assets/views/researcher/navbar.php');
                 }
             ?>
-
 
             <div class="container-ver-mas">
                 <div class="sub-container">
@@ -226,6 +227,7 @@
 
         <?php 
             include('assets/modals/Student/sendRequest.php');
+            require_once('assets/modals/Advisors/perfilasesor.php');
         ?>
 
         <footer class="bd-footer text-muted" style="margin-top:20px;"role="contentinfo">

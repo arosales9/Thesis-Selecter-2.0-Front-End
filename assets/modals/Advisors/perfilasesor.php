@@ -1,10 +1,10 @@
 <div class="modal fade mdT" id="exampleModal1" tabindex="-1" aria-hidden="true">
-  <div style="width: 100%; height: auto;">
+  <div style="width: 60%; height: auto; margin:0 auto;">
     <div class="colorEspecial">
           
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h1 class="modal-title" id="exampleModalLabel">Modal title 2</h1>
+        <h1 class="modal-title" id="exampleModalLabel">Perfil de usuario</h1>
       </div>
 
       <div class="modal-body">
@@ -12,19 +12,19 @@
           <tbody>
             <tr>
               <th scope="row">Nombre</th>
-              <td>Datos</td>
+              <td><?php echo ucwords(strtolower($atributos['uNombre'][0])); ?></td>
             </tr>
             <tr>
               <th scope="row">Correo</th>
-              <td>Datos</td>
+              <td><?php echo ucwords(strtolower($atributos['uCuenta'][0])); ?></td>
             </tr>
             <tr>
               <th scope="row">Institucion</th>
-              <td>Datos</td>
+              <td><?php echo ucwords(strtolower($atributos['uCorreo'][0])); ?></td>
             </tr>
             <tr>
               <th scope="row">Edificio</th>
-              <td>Datos</td>
+              <td><?php echo ucwords(strtolower($atributos['uTipo'][0])); ?></td>
             </tr>
             <tr>
               <th scope="row">Cubiculo</th>
@@ -40,10 +40,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" form="">Save changes</button>
       </div>
     </div>
   </div>

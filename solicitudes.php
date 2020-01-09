@@ -6,8 +6,6 @@
      header('Location: home.php?msg=3');
      // code...
    }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -38,9 +36,8 @@
   <link href="assets/plugins/Fancybox/source/jquery.fancybox.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/gallery.css">
-
-
-
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/Estilos.css">
   </head>
   <body>
 	<div id="estructura">
@@ -49,32 +46,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-					<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false">&#x2630;</button>			        <div class="collapse navbar-toggleable-sm" id="navbar-header">
-
-			            <a class="navbar-brand" id="logo" href="//www.ucol.mx/">Universidad de Colima</a>
-			            <span class="home-href"><a href="./"></a></span>
-			            						   <!--<ul id="navlist" class="nav navbar-primary navbar-nav pull-md-right">
-						   <li class="nav-item">
-						      <a class="nav-link" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-						         Opcion 1
-						      </a>
-						           <ul id="subnavlist" class="dropdown-menu">
-						              <li><a href="#">Sub opcion 1</a></li>
-						              <li><a href="#">Sub opcion 2</a></li>
-						           </ul>
-						   </li>
-						   <li class="nav-item">
-						      <a class="nav-link" href="#">
-						         Opcion 2
-						      </a>
-						   </li>
-						   <li class="nav-item">
-						      <a class="nav-link" href="#">
-						         Opcion 3
-						      </a>
-						   </li>
-						</ul>-->
-			        </div>
+					<button class="navbar-toggler hidden-md-up pull-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false">&#x2630;</button>			        
+            <div class="collapse navbar-toggleable-sm" id="navbar-header">
+              <a class="navbar-brand" id="logo" href="//www.ucol.mx/">Universidad de Colima</a>
+			          <span class="home-href"><a href="./"></a></span>
+			      </div>
 				</div>
 			</div>
 		</div>
@@ -113,11 +89,8 @@
 
       <br><br><br>
 		<div class="row p-contenido" style="">
-
-			<!-- <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 main"> <--Con  contenido izquierdo o derecho uno de los dos
-			<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 main"> <--Pagina completa -->
       <div id="thesis" class="col-xl-12 col-lg-12 col-md-8 col-xs-12 main"><!--Con contenido izquierdo y derecho -->
-  <div id="accordion">
+      <div id="accordion">
   <div class="card">
     <div class="card-header" style="height: 55px;" id="headingOne">
         <button class="btn btn-link btn-sm" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -202,50 +175,51 @@
             <tbody id="rejectRequest">
 
             </tbody>
-        </table>
+          </table>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header" style="height: 55px;" id="headingFour">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed btn-sm" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Inhabilitado
-        </button>
-      </h5>
-    </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
-        <table class="table table-hover" id="dev-table">
-            <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col" width="20%">Tesis</th>
-                  <th scope="col">Alumno</th>
-                  <th scope="col">Correo electrónico</th>
-                  <th scope="col">Facultad</th>
-                  <th scope="col">Carrera</th>
-                </tr>
-            </thead>
-            <tbody id="prohibidoRequest">
+    <div class="card">
+      <div class="card-header" style="height: 55px;" id="headingFour">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed btn-sm" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Inhabilitado
+          </button>
+        </h5>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table table-hover" id="dev-table">
+              <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" width="20%">Tesis</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Correo electrónico</th>
+                    <th scope="col">Facultad</th>
+                    <th scope="col">Carrera</th>
+                  </tr>
+              </thead>
+              <tbody id="prohibidoRequest">
 
-            </tbody>
-        </table>
+              </tbody>
+          </table>
 
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-      </div>
-
-		</div>
+	</div>
 		<div class="row p-inferior">
 			<div class="col-md-12 p-content"></div>
 		</div>
 	</div>
-
+  <?php
+    require_once('assets/modals/Advisors/perfilasesor.php');
+  ?>
    </div>
     <footer class="bd-footer text-muted" style="margin-top:20px;"role="contentinfo">
 	    <div class="container">
@@ -274,46 +248,5 @@
     <script src="assets/js/request/Service.js" type="text/javascript"></script>
     <script src="assets/js/request/Controller.js" type="text/javascript"></script>
     <script src="assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-
-
-    <!-- HTML5 shim y Respond.js para soporte IE8 de elementos HTML5 y media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!--script>
-        // Carousel Auto-Cycle
-		$(document).ready(function() {
-			//$('#navcontainer > #navlist').attr('data-spy','affix').attr('data-offset-top',100).attr('data-offset-bottom', 531);
-			$('#sliderNaN>.rslides').responsiveSlides({auto:true,pager:true,nav:true,timeout:6000,speed:800});
-			$(function () {
-			  $('[data-toggle="tooltip"]').tooltip()
-			})
-		    $( '.form-search-ucol' ).click( function() {
-				$( this ).addClass( 'active' );
-			}).focusout( function() {
-				$( this ).removeClass( 'active' );
-			});
-			$('#navcontainer > #navlist').affix({
-			  offset: {
-			    top: 100,
-			    bottom: function () {
-			      return (this.bottom = $('footer').outerHeight(true)+100)
-			    }
-			  }
-			});
-			var modWidth = $( '#navcontainer' ).width() - 30;
-		    $( '#navlist' ).width( modWidth );
-			jQuery( window ).resize( function () {
-		        if ( jQuery( window ).width() ) {
-			        var modWidth = $( '#navcontainer' ).width() - 30;
-		           $( '#navlist' ).width( modWidth );
-		        }
-			});
-
-
-		});
-    </script-->
   </body>
 </html>
